@@ -102,24 +102,25 @@ Developers-Documentation-Site/
 ├── index.html              # Entry point / Home page
 ├── README.md               # Project documentation (you are here)
 │
-│─── css/
-│   │   ├── style.css       # Main stylesheet
-│   │   └── dark-mode.css   # Dark theme styles
-│   ├── js/
-│   │   ├── main.js         # Core interactivity
-│   │   └── search.js       # Search functionality
-│   └── images/             # Icons, logos, screenshots
+│─── CSS/
+│   │   └── style.css       # Main stylesheet
+│   │ 
+│─── JS/
+│       └── concepts.js     # Core interactivity
+│    
+│─── images/                # Icons, logos, screenshots
 │
-├── pages/
-│   ├── getting-started.html
-│   ├── installation.html
-│   ├── api-reference.html
-│   └── faq.html
-│
-└── docs/
-    ├── guide.md
-    └── reference.md
-```
+└── HTML/
+    ├── changelog.html
+    ├── community.html
+    ├── concepts-asobi.html
+    ├── concepts-news.html
+    ├── learning-resources.html
+    ├── sitemap.html
+    ├── things-you-need-to-know.html
+    ├── what-we-recommend.html
+    └── your-first-project.html
+
 
 
 ## 🤝 Contributing
