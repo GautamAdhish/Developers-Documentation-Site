@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Resources & Career Roadmaps — DevDocs</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <style>
+    /* Sub Block Section */
+    .sub-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      margin-bottom: 12px;
+      background: var(--surface);
+      transition: box-shadow 0.2s, background 0.25s, border-color 0.25s;
+    }
+
+    .sub-block:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .sub-block-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sub-block-title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .sub-block-body {
+      font-size: 0.865rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .sub-block-body p+p {
+      margin-top: 10px;
+    }
+
+    /* Tools cards grid  */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tool-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      transition: border-color 0.2s, background 0.25s;
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent);
+    }
+
+    .tool-card-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .tool-card-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .tool-card-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    /* Page Intro */
+    .page-intro {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      transition: background 0.25s;
+    }
+
+    [data-theme="dark"] .page-intro {
+      background: #1a2a4a;
+    }
+
+    .page-intro p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .page-intro p strong {
+      color: var(--text);
+    }
+
+    /* Learn chips */
+    .learn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .learn-chip {
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: background 0.25s, border-color 0.25s;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header  -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+      </div>
+      <span class="logo-text">Dev<span>Docs</span></span>
+    </div>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+      <input type="text" placeholder="Search docs…" aria-label="Search documentation" />
+    </div>
+
+    <nav class="nav-icons">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+      <a href="https://github.com/GautamAdhish/Developers-Documentation-Site" aria-label="GitHub" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+      </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg id="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Shell  -->
+  <div class="shell">
+
+    <!-- Left Sidebar -->
+    <aside class="left">
+      <div class="nav-section">
+        <div class="nav-label">Menu</div>
+
+        <a href="../index.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Getting Started
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          Guides
+        </a>
+        <div class="nav-sub">
+          <a href="things-you-need-to-know.html" class="nav-item">Things You Need To Know</a>
+          <a href="what-we-recommend.html" class="nav-item">What We Recommend</a>
+          <a href="your-first-project.html" class="nav-item">Your First Project</a>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <a href="learning-resources.html" class="nav-item active">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          Learning Resources
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          Concepts
+        </a>
+
+        <a href="changelog.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Changelogs
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="community.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Community
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        Docs
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span>Learning Resources</span>
+      </div>
+
+      <!-- Page title -->
+      <h1
+        style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); margin-bottom:10px; line-height:1.2;">
+        Learning Resources & Career Roadmaps
+      </h1>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">
+        Understand three popular tech careers, compare them side by side, then follow a clear beginner-friendly roadmap
+        to reach your first role.
+      </p>
+
+      <!-- Intro -->
+      <div class="page-intro">
+        <p>
+          Before you pick a path, take a moment to understand what each career actually looks like day to day. This
+          page gives you a <strong>high-level overview</strong> of Web Development, AI &amp; Machine Learning, and
+          Cybersecurity, then walks you through <strong>simple, practical roadmaps</strong> you can follow from zero.
+        </p>
+      </div>
+
+      <!-- Career overview -->
+      <div class="section-heading" id="career-overview">Career tracks overview</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-blue">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+          </div>
+          <div class="block-title">Compare the three paths</div>
+        </div>
+        <div class="block-body">
+          <p>
+            All three careers are in strong global demand. The right choice depends more on what you enjoy than on
+            chasing the "highest" salary. Use this overview to get a feel for the kind of work, demand, and typical
+            pay ranges (very rough, global averages) before diving into a roadmap.
+          </p>
+        </div>
+
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-card-name">Web Development</div>
+            <div class="tool-card-desc">
+              <strong>Typical roles:</strong> Front-End Developer, Web Developer, Full-Stack Developer.
+              <br />
+              <strong>Global demand:</strong> Very high as more businesses move online and need modern websites and web
+              apps.
+              <br />
+              <strong>Salary (approx.):</strong> Many entry-level roles start around the local junior developer range in
+              your country, with strong growth as you gain experience.
+            </div>
+            <span class="tool-card-tag">Great if you enjoy building UIs</span>
+            <a href="#web-dev-track" class="block-link" style="font-size:0.78rem; margin-top:10px; display:inline-flex;">
+              View Web Dev roadmap
+              <svg viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-card-name">AI &amp; Machine Learning</div>
+            <div class="tool-card-desc">
+              <strong>Typical roles:</strong> ML Engineer, Data Scientist, AI Engineer.
+              <br />
+              <strong>Global demand:</strong> Rapidly growing as companies adopt AI for products, automation, and
+              decision-making.
+              <br />
+              <strong>Salary (approx.):</strong> Often higher than average developer roles once you have solid skills,
+              but usually requires stronger math and programming foundations.
+            </div>
+            <span class="tool-card-tag">Great if you enjoy data &amp; math</span>
+            <a href="#ai-track" class="block-link" style="font-size:0.78rem; margin-top:10px; display:inline-flex;">
+              View AI &amp; ML roadmap
+              <svg viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="tool-card">
+            <div class="tool-card-name">Cybersecurity</div>
+            <div class="tool-card-desc">
+              <strong>Typical roles:</strong> Security Analyst, SOC Analyst, Penetration Tester.
+              <br />
+              <strong>Global demand:</strong> Extremely high, with a worldwide shortage of skilled security
+              professionals.
+              <br />
+              <strong>Salary (approx.):</strong> Competitive even at junior levels in many regions, with strong growth
+              as you specialize.
+            </div>
+            <span class="tool-card-tag">Great if you enjoy defending systems</span>
+            <a href="#cybersecurity-track" class="block-link" style="font-size:0.78rem; margin-top:10px; display:inline-flex;">
+              View Cybersecurity roadmap
+              <svg viewBox="0 0 24 24">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web Dev Roadmap -->
+      <div class="section-heading" id="web-dev-track">Web development roadmap</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-blue">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <div class="block-title">From zero to junior front-end developer</div>
+        </div>
+        <div class="block-body">
+          <p>
+            Web developers build the sites and web apps you use every day. You work with HTML, CSS, and JavaScript to
+            turn designs into real, interactive pages.
+          </p>
+          <p>
+            This roadmap focuses on front-end skills first. Many beginners can reach a solid junior level in
+            <strong>3–6 months</strong> of consistent part-time study, especially if you keep building small projects.
+          </p>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 1 — HTML &amp; CSS foundations
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Learn how to structure pages with semantic HTML and style them with modern CSS. Focus on layouts
+                (flexbox and grid), typography, and basic responsive design.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Semantic HTML</span>
+                <span class="learn-chip">CSS basics</span>
+                <span class="learn-chip">Flexbox</span>
+                <span class="learn-chip">CSS Grid</span>
+                <span class="learn-chip">Responsive layouts</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 2 — JavaScript fundamentals
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Learn how to make pages interactive. Start with variables, functions, arrays, loops, and conditionals,
+                then move into DOM manipulation and event listeners.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Variables &amp; types</span>
+                <span class="learn-chip">Functions</span>
+                <span class="learn-chip">DOM manipulation</span>
+                <span class="learn-chip">Events</span>
+                <span class="learn-chip">Basic debugging</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 3 — Build small real projects
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Apply what you know by cloning simple landing pages, personal portfolios, and small interactive
+                components (tabs, modals, accordions). Keep projects small but finish them.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Landing pages</span>
+                <span class="learn-chip">Portfolios</span>
+                <span class="learn-chip">Reusable components</span>
+                <span class="learn-chip">Project structure</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 4 — Git, GitHub &amp; basics of teamwork
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Start using Git to track your code and GitHub to host your projects. Learn how to commit, push, and
+                pull changes, and how to write clear commit messages.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Git basics</span>
+                <span class="learn-chip">GitHub profile</span>
+                <span class="learn-chip">Commit messages</span>
+                <span class="learn-chip">Open-source etiquette</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI & ML Roadmap -->
+      <div class="section-heading" id="ai-track">AI &amp; machine learning roadmap</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-orange">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg>
+          </div>
+          <div class="block-title">From zero to applied ML practitioner</div>
+        </div>
+        <div class="block-body">
+          <p>
+            AI &amp; Machine Learning roles focus on using data to make predictions, automate decisions, and build
+            intelligent features. You combine programming, statistics, and problem-solving.
+          </p>
+          <p>
+            This path usually takes longer than web dev because you build both coding and math foundations. Think in
+            terms of <strong>6–12 months</strong> of steady practice, depending on your starting point.
+          </p>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 1 — Programming &amp; basic data skills
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Start with a general-purpose language used in ML (most beginners choose Python). Learn how to work with
+                variables, functions, lists, and basic file I/O, then practice loading and inspecting simple datasets.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Python basics</span>
+                <span class="learn-chip">Control flow</span>
+                <span class="learn-chip">Working with files</span>
+                <span class="learn-chip">Simple CSV datasets</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 2 — Practical math foundations
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Focus on the pieces of math that show up everywhere in ML: basic statistics, probability, and linear
+                algebra ideas like vectors and matrices. You do not need proofs — aim for intuition and how to apply
+                them.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Descriptive statistics</span>
+                <span class="learn-chip">Probability basics</span>
+                <span class="learn-chip">Vectors &amp; matrices</span>
+                <span class="learn-chip">Data distributions</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 3 — Core ML concepts
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Learn what supervised and unsupervised learning mean, how a model is trained, and how to evaluate it.
+                Start with classic algorithms using well-known libraries instead of writing everything from scratch.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Supervised vs unsupervised</span>
+                <span class="learn-chip">Train / test splits</span>
+                <span class="learn-chip">Classification &amp; regression</span>
+                <span class="learn-chip">Model evaluation</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 4 — Small, real projects
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Build a handful of end-to-end mini projects: load data, clean it, train a simple model, and explain the
+                results in plain language. Focus on clarity over complexity.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Notebook workflows</span>
+                <span class="learn-chip">Data cleaning</span>
+                <span class="learn-chip">Simple ML pipelines</span>
+                <span class="learn-chip">Explaining results</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cybersecurity Roadmap -->
+      <div class="section-heading" id="cybersecurity-track">Cybersecurity roadmap</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-green">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2L4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z" />
+            </svg>
+          </div>
+          <div class="block-title">From zero to security analyst</div>
+        </div>
+        <div class="block-body">
+          <p>
+            Cybersecurity professionals help keep systems, networks, and data safe. Much of the day-to-day work is
+            about monitoring for issues, understanding how attacks work, and improving defenses.
+          </p>
+          <p>
+            There is a global shortage of skilled security people, so opportunities are strong. This roadmap focuses on
+            <strong>defensive, beginner-friendly skills</strong> and emphasizes ethical, legal learning only.
+          </p>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 1 — Computer &amp; network basics
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Before you can secure systems, you need to understand how they work. Learn operating system basics,
+                files and permissions, and how data moves across a network and the web.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Operating system basics</span>
+                <span class="learn-chip">Command line</span>
+                <span class="learn-chip">Networking fundamentals</span>
+                <span class="learn-chip">How the web works</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 2 — Security fundamentals
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Learn core concepts like confidentiality, integrity, availability, authentication, and authorization.
+                Study common attack types at a high level (phishing, malware, basic web attacks) and how people defend
+                against them.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Security principles</span>
+                <span class="learn-chip">Threats &amp; vulnerabilities</span>
+                <span class="learn-chip">Basic web security</span>
+                <span class="learn-chip">Password hygiene</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 3 — Hands-on labs &amp; tools (ethical only)
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Practice in safe, legal environments such as online labs and capture-the-flag style platforms designed
+                for learning. Get comfortable with basic security tools used for scanning, monitoring, and analysis.
+              </p>
+              <p>
+                Always follow the rules of each platform and the law in your country. Never test systems you do not own
+                or do not have clear written permission to work on.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">Safe lab platforms</span>
+                <span class="learn-chip">Basic security tools</span>
+                <span class="learn-chip">Log review</span>
+                <span class="learn-chip">Ethical guidelines</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title">
+              <span class="dot"></span>Milestone 4 — Monitoring &amp; incident basics
+            </div>
+            <div class="sub-block-body">
+              <p>
+                Learn what a Security Operations Center (SOC) does, how alerts are handled, and how simple incidents are
+                triaged. Focus on reading logs, recognizing suspicious patterns, and escalating correctly.
+              </p>
+              <div class="learn-row">
+                <span class="learn-chip">SOC workflows</span>
+                <span class="learn-chip">Alert triage</span>
+                <span class="learn-chip">Incident basics</span>
+                <span class="learn-chip">Reporting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom nav -->
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--border);">
+        <a href="what-we-recommend.html" class="block-link" style="font-size:0.9rem; color:var(--muted);">
+          <svg viewBox="0 0 24 24" style="transform:rotate(180deg);">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+          Previous: What We Recommend
+        </a>
+        <a href="your-first-project.html" class="block-link" style="font-size:0.9rem;">
+          Next: Your First Project
+          <svg viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right">
+      <div class="toc-title">On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#career-overview" class="active">Career Overview</a></li>
+        <li><a href="#web-dev-track">Web Development Roadmap</a></li>
+        <li><a href="#ai-track">AI &amp; ML Roadmap</a></li>
+        <li><a href="#cybersecurity-track">Cybersecurity Roadmap</a></li>
+      </ul>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">In This Guide</div>
+      <a href="things-you-need-to-know.html" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        Things You Need To Know
+      </a>
+      <a href="what-we-recommend.html" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+        What We Recommend
+      </a>
+      <a href="your-first-project.html" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+        Your First Project
+      </a>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">Need Help?</div>
+      <a href="https://github.com/GautamAdhish/Developers-Documentation-Site" class="toc-extra-link" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+        GitHub
+      </a>
+    </aside>
+
+  </div><!-- end shell -->
+
+  <!-- Premium Footer -->
+  <footer class="premium-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-header">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+          </div>
+          <span class="brand-name">Dev<span>Docs</span></span>
+        </div>
+        <p>Empowering the next generation of developers with clear, beginner-friendly documentation. Start building today.</p>
+        <div class="footer-socials">
+          <a href="https://github.com/GautamAdhish/Developers-Documentation-Site" aria-label="GitHub" target="_blank">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+            </svg>
+          </a>
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24">
+              <path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"></path>
+            </svg>
+          </a>
+          <a href="#" aria-label="Discord">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">Resources</h4>
+        <ul>
+          <li><a href="../index.html">Getting Started</a></li>
+          <li><a href="what-we-recommend.html">Guides &amp; Tutorials</a></li>
+          <li><a href="#">Interactive Concepts</a></li>
+          <li><a href="#">API Reference</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">Community</h4>
+        <ul>
+          <li><a href="community.html">Discussions</a></li>
+          <li><a href="#">Discord Server</a></li>
+          <li><a href="https://github.com/GautamAdhish/Developers-Documentation-Site" target="_blank">Open Source</a></li>
+          <li><a href="changelog.html">Changelog</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+          <li><a href="#">License</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 DevDocs. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="sitemap.html">Sitemap</a>
+        <a href="#">Brand Guidelines</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+
+    // Load saved preference
+    const saved = localStorage.getItem('devdocs-theme');
+    if (saved) html.setAttribute('data-theme', saved);
+
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('devdocs-theme', next);
+    });
+
+    // Hamburger sidebar toggle
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.querySelector('aside.left');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    });
+  </script>
+
+</body>
+
+</html>
