@@ -1,234 +1,327 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DevDocs — Beginner Developer Documentation</title>
-  <link rel="stylesheet" href="../CSS/style.css"/>
+  <link rel="stylesheet" href="../CSS/style.css" />
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
-  <div class="logo-area">
-    <div class="logo-icon">
-      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+  <!-- Header -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+      </div>
+      <span class="logo-text">Dev<span>Docs</span></span>
     </div>
-    <span class="logo-text">Dev<span>Docs</span></span>
-  </div>
 
-  <div class="search-wrap">
-    <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <input type="text" placeholder="Search docs…" aria-label="Search documentation"/>
-  </div>
-
-  <nav class="nav-icons">
-    <!-- GitHub -->
-    <a href="#" aria-label="GitHub">
-      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-    </a>
-
-    <!-- Theme Toggle -->
-    <button id="theme-toggle" aria-label="Toggle dark mode">
-      <!-- Sun icon (visible in light mode) -->
-      <svg id="icon-sun" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="5"/>
-        <line x1="12" y1="1" x2="12" y2="3"/>
-        <line x1="12" y1="21" x2="12" y2="23"/>
-        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-        <line x1="1" y1="12" x2="3" y2="12"/>
-        <line x1="21" y1="12" x2="23" y2="12"/>
-        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
       </svg>
-      <!-- Moon icon (visible in dark mode) -->
-      <svg id="icon-moon" viewBox="0 0 24 24">
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-      </svg>
-    </button>
-  </nav>
-</header>
+      <input type="text" placeholder="Search docs…" aria-label="Search documentation" />
+    </div>
 
-<!-- Shell -->
-<div class="shell">
-
-  <!-- Left Sidebar -->
-  <aside class="left">
-    <div class="nav-section">
-      <div class="nav-label">Menu</div>
-
-      <a href="../DevDocSite/index.html" class="nav-item active" target="_blank">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Getting Started
+    <nav class="nav-icons">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <!-- GitHub -->
+      <a href="https://github.com/GautamAdhish/Developers-Documentation-Site" aria-label="GitHub" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
       </a>
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        Guides
-      </a>
-      <div class="nav-sub">
-        <a href="HTML/things-you-need-to-know.html" class="nav-item">Things You Need To Know</a>
-        <a href="#" class="nav-item">What We Recommend</a>
-        <a href="#" class="nav-item">Your First Project</a>
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <!-- Sun icon (visible in light mode) -->
+        <svg id="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <!-- Moon icon (visible in dark mode) -->
+        <svg id="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Shell -->
+  <div class="shell">
+
+    <!-- Left Sidebar -->
+    <aside class="left">
+      <div class="nav-section">
+        <div class="nav-label">Menu</div>
+
+        <a href="../DevDocSite/index.html" class="nav-item active" target="_blank">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Getting Started
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          Guides
+        </a>
+        <div class="nav-sub">
+          <a href="HTML/things-you-need-to-know.html" class="nav-item">Things You Need To Know</a>
+          <a href="#" class="nav-item">What We Recommend</a>
+          <a href="#" class="nav-item">Your First Project</a>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          Learning Resources
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          Concepts
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Changelogs
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Community
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <div class="breadcrumb">
+        Docs
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span>Getting Started</span>
       </div>
 
-      <div class="nav-divider"></div>
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-eyebrow">Welcome to DevDocs</div>
+        <h1>Build your first project<br />from scratch 🚀</h1>
+        <p>A beginner-friendly guide to HTML, CSS &amp; JavaScript. Follow step-by-step and go from zero to building
+          real projects on your own.</p>
+        <a href="../HTML/things-you-need-to-know.html" class="hero-cta">
+          Start the first guide
+          <svg viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+      <!-- Section 1 -->
+      <div class="section-heading" id="what-is-this">What is this site?</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-blue">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+          </div>
+          <div class="block-title">About This Documentation</div>
+        </div>
+        <div class="block-body">
+          <p>This site is designed for complete beginners who want to learn web development using HTML, CSS, and
+            JavaScript — no frameworks, no complexity.</p>
+          <p>Every guide is written in plain English with real working code examples. You learn by building actual
+            projects, not just reading theory.</p>
+        </div>
+        <div class="block-tags">
+          <span class="tag">Beginner Friendly</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-green">
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <div class="block-title">Who Is This For?</div>
+        </div>
+        <div class="block-body">
+          <p>You don't need any prior experience to get started here. If you know how to open a browser, you're ready.
+          </p>
+          <p>This is for students, career switchers, hobbyists, or anyone curious about how websites are built.</p>
+        </div>
+        <div class="block-tags">
+          <span class="tag green">No Experience Needed</span>
+          <span class="tag green">Self-Paced</span>
+        </div>
+      </div>
+
+      <!-- Section 2 -->
+      <div class="section-heading" id="how-to-use">How to use this site</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-orange">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <line x1="16" y1="13" x2="8" y2="13" />
+              <line x1="16" y1="17" x2="8" y2="17" />
+              <polyline points="10 9 9 9 8 9" />
+            </svg>
+          </div>
+          <div class="block-title">Follow the Guides in Order</div>
+        </div>
+        <div class="block-body">
+          <p>Each guide builds on the one before it. Start with <strong>Installation &amp; Setup</strong>, then work
+            through the project guides one by one.</p>
+          <p>If you get stuck on a concept, jump to the <strong>Concepts</strong> page for a quick plain-English
+            explanation, then come back.</p>
+        </div>
+        <a href="#" class="block-link">
+          Go to Guides
+          <svg viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right">
+      <div class="toc-title">On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#what-is-this" class="active">What is this site?</a></li>
+        <li><a href="#how-to-use">How to use this site</a></li>
+      </ul>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">Quick Links</div>
+      <a href="#" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+        Your First Project
+      </a>
+      <a href="#" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        Core Concepts
+      </a>
+      <a href="#" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
         Learning Resources
       </a>
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Concepts
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">Need Help?</div>
+      <a href="https://github.com/GautamAdhish/Developers-Documentation-Site" class="toc-extra-link" target="_blank">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+        GitHub
       </a>
+    </aside>
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        Changelogs
-      </a>
+  </div><!-- end shell -->
 
-      <div class="nav-divider"></div>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Community
-      </a>
-    </div>
-  </aside>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
 
-  <!-- Main Content -->
-  <main>
-    <div class="breadcrumb">
-      Docs
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>Getting Started</span>
-    </div>
+    // Load saved preference
+    const saved = localStorage.getItem('devdocs-theme');
+    if (saved) html.setAttribute('data-theme', saved);
 
-    <!-- Hero -->
-    <div class="hero">
-      <div class="hero-eyebrow">Welcome to DevDocs</div>
-      <h1>Build your first project<br/>from scratch 🚀</h1>
-      <p>A beginner-friendly guide to HTML, CSS &amp; JavaScript. Follow step-by-step and go from zero to building real projects on your own.</p>
-      <a href="#" class="hero-cta">
-        Start the first guide
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
+    toggle.addEventListener('click', () => {
+      const current = html.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('devdocs-theme', next);
+    });
 
-    <!-- Section 1 -->
-    <div class="section-heading" id="what-is-this">What is this site?</div>
+    // Hamburger sidebar toggle
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.querySelector('aside.left');
+    const overlay = document.getElementById('sidebar-overlay');
 
-    <div class="content-block">
-      <div class="block-header">
-        <div class="block-icon icon-blue">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        </div>
-        <div class="block-title">About This Documentation</div>
-      </div>
-      <div class="block-body">
-        <p>This site is designed for complete beginners who want to learn web development using HTML, CSS, and JavaScript — no frameworks, no complexity.</p>
-        <p>Every guide is written in plain English with real working code examples. You learn by building actual projects, not just reading theory.</p>
-      </div>
-      <div class="block-tags">
-        <span class="tag">Beginner Friendly</span>
-        <span class="tag">HTML</span>
-        <span class="tag">CSS</span>
-        <span class="tag">JavaScript</span>
-      </div>
-    </div>
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    });
 
-    <div class="content-block">
-      <div class="block-header">
-        <div class="block-icon icon-green">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="block-title">Who Is This For?</div>
-      </div>
-      <div class="block-body">
-        <p>You don't need any prior experience to get started here. If you know how to open a browser, you're ready.</p>
-        <p>This is for students, career switchers, hobbyists, or anyone curious about how websites are built.</p>
-      </div>
-      <div class="block-tags">
-        <span class="tag green">No Experience Needed</span>
-        <span class="tag green">Self-Paced</span>
-      </div>
-    </div>
-
-    <!-- Section 2 -->
-    <div class="section-heading" id="how-to-use">How to use this site</div>
-
-    <div class="content-block">
-      <div class="block-header">
-        <div class="block-icon icon-orange">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-        </div>
-        <div class="block-title">Follow the Guides in Order</div>
-      </div>
-      <div class="block-body">
-        <p>Each guide builds on the one before it. Start with <strong>Installation &amp; Setup</strong>, then work through the project guides one by one.</p>
-        <p>If you get stuck on a concept, jump to the <strong>Concepts</strong> page for a quick plain-English explanation, then come back.</p>
-      </div>
-      <a href="#" class="block-link">
-        Go to Guides
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-
-  </main>
-
-  <!-- Right Sidebar -->
-  <aside class="right">
-    <div class="toc-title">On This Page</div>
-    <ul class="toc-list">
-      <li><a href="#what-is-this" class="active">What is this site?</a></li>
-      <li><a href="#how-to-use">How to use this site</a></li>
-    </ul>
-
-    <div class="toc-divider"></div>
-
-    <div class="toc-extra-title">Quick Links</div>
-    <a href="#" class="toc-extra-link">
-      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      Your First Project
-    </a>
-    <a href="#" class="toc-extra-link">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      Core Concepts
-    </a>
-    <a href="#" class="toc-extra-link">
-      <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-      Learning Resources
-    </a>
-
-    <div class="toc-divider"></div>
-
-    <div class="toc-extra-title">Need Help?</div>
-    <a href="#" class="toc-extra-link">
-      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      GitHub
-    </a>
-  </aside>
-
-</div><!-- end shell -->
-
-<script>
-  const toggle = document.getElementById('theme-toggle');
-  const html   = document.documentElement;
-
-  // Load saved preference
-  const saved = localStorage.getItem('devdocs-theme');
-  if (saved) html.setAttribute('data-theme', saved);
-
-  toggle.addEventListener('click', () => {
-    const current = html.getAttribute('data-theme');
-    const next    = current === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('devdocs-theme', next);
-  });
-</script>
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    });
+  </script>
 
 </body>
+
 </html>

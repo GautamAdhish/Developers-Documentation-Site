@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Things You Need To Know — DevDocs</title>
-  <link rel="stylesheet" href="../CSS/style.css"/>
+  <link rel="stylesheet" href="../CSS/style.css" />
   <style>
     /* Page Specific Styles for this page */
 
@@ -39,8 +40,8 @@
       color: #e05252;
     }
 
-    [data-theme="light"] .reality-banner-text { 
-      color: #b03030; 
+    [data-theme="light"] .reality-banner-text {
+      color: #b03030;
     }
 
     .reality-banner-text strong {
@@ -83,11 +84,12 @@
       margin-bottom: 8px;
     }
 
-    .myth-card.myth .myth-card-label   { 
-      color: #e05252; 
+    .myth-card.myth .myth-card-label {
+      color: #e05252;
     }
-    .myth-card.reality .myth-card-label { 
-      color: #2dab6e; 
+
+    .myth-card.reality .myth-card-label {
+      color: #2dab6e;
     }
 
     .myth-card-text {
@@ -96,9 +98,9 @@
       color: var(--muted);
     }
 
-    .myth-card-text strong { 
-      color: var(--text); 
-      font-weight: 600; 
+    .myth-card-text strong {
+      color: var(--text);
+      font-weight: 600;
     }
 
     /* Reality check blocks */
@@ -111,8 +113,8 @@
       transition: box-shadow 0.2s, background 0.25s;
     }
 
-    .reality-block:hover { 
-      box-shadow: 0 4px 20px rgba(0,0,0,0.06); 
+    .reality-block:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     }
 
     .reality-block-header {
@@ -133,8 +135,8 @@
       transition: color 0.25s;
     }
 
-    .reality-block:hover .reality-number { 
-      color: var(--accent); 
+    .reality-block:hover .reality-number {
+      color: var(--accent);
     }
 
     .reality-block-title {
@@ -152,8 +154,8 @@
       color: var(--muted);
     }
 
-    .reality-block-body p + p { 
-      margin-top: 10px; 
+    .reality-block-body p+p {
+      margin-top: 10px;
     }
 
     /* Solution steps */
@@ -166,8 +168,8 @@
     }
 
     .solution-step:last-child {
-       border-bottom: none; 
-      }
+      border-bottom: none;
+    }
 
     .step-badge {
       background: var(--accent-soft);
@@ -214,7 +216,7 @@
       font-family: 'Syne', sans-serif;
       font-size: 5rem;
       font-weight: 800;
-      color: rgba(79,142,247,0.08);
+      color: rgba(79, 142, 247, 0.08);
       pointer-events: none;
       user-select: none;
     }
@@ -244,23 +246,24 @@
       max-width: 560px;
     }
 
-    .ai-callout p + p { 
+    .ai-callout p+p {
       margin-top: 10px;
     }
 
     /* Inline highlight */
-    .highlight-red   { 
-      color: #e05252; 
-      font-weight: 600; 
+    .highlight-red {
+      color: #e05252;
+      font-weight: 600;
     }
 
     .highlight-green {
-      color: #2dab6e; 
-      font-weight: 600; 
+      color: #2dab6e;
+      font-weight: 600;
     }
-    .highlight-blue  { 
-      color: var(--accent); 
-      font-weight: 600; 
+
+    .highlight-blue {
+      color: var(--accent);
+      font-weight: 600;
     }
 
     /* Page intro */
@@ -274,8 +277,8 @@
       transition: background 0.25s;
     }
 
-    [data-theme="dark"] .page-intro { 
-      background: #1a2a4a; 
+    [data-theme="dark"] .page-intro {
+      background: #1a2a4a;
     }
 
     .page-intro p {
@@ -286,427 +289,584 @@
 
 
     /* Section heading override for this page */
-    .section-heading { 
-      margin-top: 36px; 
+    .section-heading {
+      margin-top: 36px;
     }
   </style>
 </head>
+
 <body>
 
-<!-- Header -->
-<header>
-  <div class="logo-area">
-    <div class="logo-icon">
-      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+  <!-- Header -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+      </div>
+      <span class="logo-text">Dev<span>Docs</span></span>
     </div>
-    <span class="logo-text">Dev<span>Docs</span></span>
-  </div>
 
-  <div class="search-wrap">
-    <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <input type="text" placeholder="Search docs…" aria-label="Search documentation"/>
-  </div>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+      <input type="text" placeholder="Search docs…" aria-label="Search documentation" />
+    </div>
 
-  <nav class="nav-icons">
-    <a href="#" aria-label="GitHub">
-      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-    </a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">
-      <svg id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-  </nav>
-</header>
+    <nav class="nav-icons">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
 
-<!-- Shell -->
-<div class="shell">
-
-  <!-- Left Sidebar -->
-  <aside class="left">
-    <div class="nav-section">
-      <div class="nav-label">Menu</div>
-
-      <a href="../index.html" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Getting Started
+      <a href="#" aria-label="GitHub">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
       </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg id="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
+  </header>
 
-      <a href="#" class="nav-item active">
-        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+  <!-- Shell -->
+  <div class="shell">
+
+    <!-- Left Sidebar -->
+    <aside class="left">
+      <div class="nav-section">
+        <div class="nav-label">Menu</div>
+
+        <a href="../index.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Getting Started
+        </a>
+
+        <a href="#" class="nav-item active">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          Guides
+        </a>
+        <div class="nav-sub">
+          <a href="../HTML/things-you-need-to-know.html" class="nav-item active">Things You Need To Know</a>
+          <a href="../HTML/what-we-recommend.html" class="nav-item">What We Recommend</a>
+          <a href="#" class="nav-item">Your First Project</a>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          Learning Resources
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          Concepts
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Changelogs
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Community
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        Docs
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
         Guides
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span>Things You Need To Know</span>
+      </div>
+
+      <!-- Page title -->
+      <h1
+        style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); margin-bottom:10px; line-height:1.2;">
+        Things You Need To Know
+      </h1>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">
+        Before you write your first line of code — read this. Especially if you're coming from a non-IT background.
+      </p>
+
+      <!-- Warning banner -->
+      <div class="reality-banner">
+        <div class="reality-banner-icon">⚠️</div>
+        <div class="reality-banner-text">
+          <strong>This page may be a hard read.</strong>
+          It's written for students who are completely new to IT — especially those who came from a medical or science
+          background after unsuccessful entrance exams. This is not to discourage you. It's to prepare you for what's
+          actually ahead, because nobody else will tell you these things honestly.
+        </div>
+      </div>
+
+      <!-- Section: Myth -->
+      <div class="section-heading" id="myths">Common myths people believe</div>
+
+      <div class="page-intro">
+        <p>A lot of students enter IT with beliefs planted by relatives, YouTube thumbnails, or friends who
+          <strong>"heard from someone"</strong> that IT is easy money, or let's just be honest, being inspired by sci-fi
+          movies that <strong>make no sense realistically</strong>. Let's address every single one of them directly.
+        </p>
+      </div>
+
+      <div class="myth-grid">
+        <div class="myth-card myth">
+          <div class="myth-card-label">❌ Myth</div>
+          <div class="myth-card-text"><strong>"IT is easy. You just sit and type."</strong><br /><br />People think IT
+            is just using computers. They confuse using technology with building it. These are completely different
+            things.</div>
+        </div>
+        <div class="myth-card reality">
+          <div class="myth-card-label">✅ Reality</div>
+          <div class="myth-card-text"><strong>IT requires deep, consistent problem solving.</strong><br /><br />You will
+            spend hours debugging a single error. You will read documentation that makes no sense at first. You will
+            fail repeatedly before things click.</div>
+        </div>
+      </div>
+
+      <div class="myth-grid">
+        <div class="myth-card myth">
+          <div class="myth-card-label">❌ Myth</div>
+          <div class="myth-card-text"><strong>"IT makes money fast and easily."</strong><br /><br />Everyone has heard
+            about IT salaries. Fresh graduates think they'll earn six figures within a year of graduating.</div>
+        </div>
+        <div class="myth-card reality">
+          <div class="myth-card-label">✅ Reality</div>
+          <div class="myth-card-text"><strong>Entry-level IT in Nepal is highly competitive.</strong><br /><br />The
+            market is flooded with graduates. Good pay comes to those who have real skills and a strong portfolio — not
+            just a degree. A certificate alone means very little.</div>
+        </div>
+      </div>
+
+      <div class="myth-grid">
+        <div class="myth-card myth">
+          <div class="myth-card-label">❌ Myth</div>
+          <div class="myth-card-text"><strong>"A college degree is enough to get a job."</strong><br /><br />Many
+            students believe finishing the degree is the finish line. Just submit assignments, pass exams, done.</div>
+        </div>
+        <div class="myth-card reality">
+          <div class="myth-card-label">✅ Reality</div>
+          <div class="myth-card-text"><strong>The degree opens the door. Your skills get you the
+              job.</strong><br /><br />Employers look at your GitHub, your projects, what you've built. Two candidates
+            with the same degree — the one with real projects wins every time.</div>
+        </div>
+      </div>
+
+      <div class="myth-grid">
+        <div class="myth-card myth">
+          <div class="myth-card-label">❌ Myth</div>
+          <div class="myth-card-text"><strong>"Once you learn something in IT, you're set
+              forever."</strong><br /><br />People think learning one language or tool is enough. "I know Python, I'm
+            sorted."</div>
+        </div>
+        <div class="myth-card reality">
+          <div class="myth-card-label">✅ Reality</div>
+          <div class="myth-card-text"><strong>IT never stops changing. Learning never
+              stops.</strong><br /><br />Technologies that were industry standard 3 years ago are now being replaced.
+            You will need to keep learning for the rest of your career — that's just the nature of this field.</div>
+        </div>
+      </div>
+
+      <!-- Section: Realities -->
+      <div class="section-heading" id="realities">The harsh realities of IT</div>
+
+      <div class="reality-block">
+        <div class="reality-block-header">
+          <div class="reality-number">01</div>
+          <div>
+            <div class="reality-block-title">Certifications never stop and they expire</div>
+            <div class="reality-block-body">
+              <p>In IT, certifications are a big part of your career, especially in fields like networking, cloud, and
+                cybersecurity. But here's what nobody tells you: <span class="highlight-red">most certifications expire
+                  every 2–3 years.</span></p>
+              <p>That means you don't just study once. You renew. You retake. You pay again. AWS, Cisco CCNA, CompTIA
+                Security+, Microsoft Azure, all of them have renewal requirements. This is a recurring cost of both time
+                and money throughout your entire career.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reality-block">
+        <div class="reality-block-header">
+          <div class="reality-number">02</div>
+          <div>
+            <div class="reality-block-title">The market changes faster than your course does</div>
+            <div class="reality-block-body">
+              <p>Your bachelors curriculum was designed years ago. By the time you graduate, some of what you studied
+                may already be outdated. <span class="highlight-red">No college can update its syllabus as fast as the
+                  industry moves.</span></p>
+              <p>This means you are personally responsible for staying current. Follow industry news, build side
+                projects with newer tools, and don't rely solely on what's taught in class. Your lecturers may be
+                excellent, but the industry waits for no one.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reality-block">
+        <div class="reality-block-header">
+          <div class="reality-number">03</div>
+          <div>
+            <div class="reality-block-title">Coming from a non-IT background puts you behind, temporarily</div>
+            <div class="reality-block-body">
+              <p>If you failed your medical entrance and switched to IT, that's completely valid. But be honest with
+                yourself: <span class="highlight-red">students who chose IT from the start often have a head
+                  start.</span> They may have been coding since school. You haven't.</p>
+              <p>This gap is absolutely closeable! But it requires extra effort in your first year. Don't pretend the
+                gap doesn't exist. Acknowledge it, then work harder than everyone else to close it. The students who
+                succeed in this situation are the ones who stop comparing and start building.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reality-block">
+        <div class="reality-block-header">
+          <div class="reality-number">04</div>
+          <div>
+            <div class="reality-block-title">Assignments and exams ≠ real skills</div>
+            <div class="reality-block-body">
+              <p>You can pass every exam in your program with high marks and still struggle to build a working project
+                from scratch. <span class="highlight-red">Academic performance and industry readiness are two different
+                  things.</span></p>
+              <p>Assignments are structured problems with a known answer. Real work is messy, undefined, and requires
+                you to figure things out independently. Start building your own projects outside of coursework as early
+                as possible, even if they're small and broken.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reality-block">
+        <div class="reality-block-header">
+          <div class="reality-number">05</div>
+          <div>
+            <div class="reality-block-title">Imposter syndrome will hit you hard</div>
+            <div class="reality-block-body">
+              <p>At some point, probably in your early semesters, you will look around at your classmates, look at
+                things online, and feel like you don't belong here. Like everyone else understands something you don't.
+                <span class="highlight-red">This feeling is called imposter syndrome, and almost every developer has
+                  felt it.</span>
+              </p>
+              <p>The solution is not to feel more confident. The solution is to keep building things anyway. Confidence
+                comes after action and not before it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: AI Market -->
+      <div class="section-heading" id="ai-market">IT in the current AI market</div>
+
+      <div class="ai-callout">
+        <div class="ai-callout-label">⚡ Current Reality — 2026</div>
+        <h3>AI is not replacing developers.<br />It's replacing developers who don't use AI.</h3>
+        <p>Tools like GitHub Copilot, ChatGPT, and Claude are now part of daily development work. Students who refuse to
+          learn how to work alongside AI tools will be at a disadvantage. Students who use AI as a crutch without
+          understanding fundamentals will also struggle.</p>
+        <p>The sweet spot is this: <strong style="color:white;">understand the fundamentals deeply, then use AI to work
+            faster.</strong> AI can write code — but it cannot decide what to build, debug complex system behaviour, or
+          understand your client's actual problem. That's still your job.</p>
+      </div>
+
+      <div class="reality-block">
+        <div class="reality-block-header">
+          <div class="reality-number">06</div>
+          <div>
+            <div class="reality-block-title">AI is changing which IT skills are most valuable</div>
+            <div class="reality-block-body">
+              <p>Basic code writing is being automated. <span class="highlight-red">Jobs that involve only repetitive
+                  coding tasks are at risk.</span> What's growing in demand are roles that require human judgment —
+                system architecture, security, UX thinking, prompt engineering, and managing AI pipelines.</p>
+              <p>Islington's BSc Computing with AI programme addresses this directly. But regardless of which programme
+                you're in, <span class="highlight-green">start learning what AI cannot easily replace:</span> problem
+                definition, communication, debugging complex systems, and building things end-to-end.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reality-block">
+        <div class="reality-block-header">
+          <div class="reality-number">07</div>
+          <div>
+            <div class="reality-block-title">The Nepal IT market vs the global IT market</div>
+            <div class="reality-block-body">
+              <p>Local IT jobs in Nepal are growing, but slowly. <span class="highlight-red">The competition for good
+                  local roles is intense</span> because the number of IT graduates far exceeds available positions at
+                quality companies.</p>
+              <p>The students who do well are typically those who build skills strong enough to work remotely for
+                international companies or freelance globally. This is entirely possible, but it requires a level of
+                skill significantly above the average graduate. <span class="highlight-blue">Build with this goal in
+                  mind from day one.</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Solutions -->
+      <div class="section-heading" id="solutions">What you should actually do</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-green">
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+          </div>
+          <div class="block-title">An honest action plan for complete beginners</div>
+        </div>
+        <div class="block-body">
+          <p>Here's what actually works — not motivational fluff, but concrete steps based on what successful
+            self-taught and college-taught developers consistently do.</p>
+        </div>
+
+        <div style="margin-top: 20px;">
+
+          <div class="solution-step">
+            <span class="step-badge">Step 1</span>
+            <div>
+              <div class="step-content-title">Accept where you are starting from</div>
+              <div class="step-content-body">If you're new to IT, admit it fully. Don't fake confidence. Don't pretend
+                concepts make sense when they don't. Ask questions, even the ones that feel embarrassing. Every senior
+                developer has googled "how does a for loop work" at some point.</div>
+            </div>
+          </div>
+
+          <div class="solution-step">
+            <span class="step-badge">Step 2</span>
+            <div>
+              <div class="step-content-title">Learn the fundamentals before jumping to frameworks</div>
+              <div class="step-content-body">Don't rush to React, Flutter, or Django. Learn plain HTML, CSS, and
+                JavaScript first properly. Understand how the web works. Build small ugly projects. The fundamentals
+                will carry you through every technology change that comes after.</div>
+            </div>
+          </div>
+
+          <div class="solution-step">
+            <span class="step-badge">Step 3</span>
+            <div>
+              <div class="step-content-title">Build something every week, no matter how small</div>
+              <div class="step-content-body">A calculator. A to-do list. A personal page. It doesn't matter how basic it
+                is. The habit of finishing and shipping things is more valuable than studying theory. Every project you
+                complete teaches you things that no tutorial can.</div>
+            </div>
+          </div>
+
+          <div class="solution-step">
+            <span class="step-badge">Step 4</span>
+            <div>
+              <div class="step-content-title">Put everything on GitHub from day one</div>
+              <div class="step-content-body">Even your messy beginner projects. Your GitHub profile is your real CV in
+                IT. A hiring manager will look at your GitHub before they look at your degree certificate. Start
+                building that history now, not in your final year.</div>
+            </div>
+          </div>
+
+          <div class="solution-step">
+            <span class="step-badge">Step 5</span>
+            <div>
+              <div class="step-content-title">Use AI tools but understand what they're doing</div>
+              <div class="step-content-body">Use GitHub Copilot or ChatGPT to help you code. But never blindly copy code
+                you don't understand. Always read it, question it, break it, and rebuild it. AI is a multiplier and it
+                multiplies the output of people who understand what they're doing, and it exposes the people who don't.
+              </div>
+            </div>
+          </div>
+
+          <div class="solution-step">
+            <span class="step-badge">Step 6</span>
+            <div>
+              <div class="step-content-title">Pick one specialisation and go deep</div>
+              <div class="step-content-body">Web development, networking, cybersecurity or AI/ML; pick one direction by
+                your second year and go deep into it. Being average at everything gets you nowhere. Being genuinely
+                strong in one area gets you hired. You can always branch out later once you have a foundation.</div>
+            </div>
+          </div>
+
+          <div class="solution-step">
+            <span class="step-badge">Step 7</span>
+            <div>
+              <div class="step-content-title">Find your community; online and locally</div>
+              <div class="step-content-body">Join Discord servers, follow developers on Twitter/X, attend local tech
+                meetups by your place. The people you learn alongside and the seniors you interact with will shape your
+                career more than any single course. Don't study in isolation.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom nav -->
+      <div
+        style="display:flex; justify-content:flex-end; margin-top:32px; padding-top:24px; border-top:1px solid var(--border);">
+        <a href="#" class="block-link" style="font-size:0.9rem;">
+          Next: What We Recommend
+          <svg viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right">
+      <div class="toc-title">On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#myths" class="active">Common Myths</a></li>
+        <li><a href="#realities">Harsh Realities</a></li>
+        <li><a href="#ai-market">IT & AI Market</a></li>
+        <li><a href="#solutions">What To Do</a></li>
+      </ul>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">In This Guide</div>
+      <a href="../HTML/what-we-recommend.html" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        What We Recommend
       </a>
-      <div class="nav-sub">
-        <a href="../HTML/things-you-need-to-know.html" class="nav-item active">Things You Need To Know</a>
-        <a href="../HTML/what-we-recommend.html" class="nav-item">What We Recommend</a>
-        <a href="#" class="nav-item">Your First Project</a>
-      </div>
 
-      <div class="nav-divider"></div>
+      <div class="toc-divider"></div>
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        Learning Resources
-      </a>
+      <a href="#" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Concepts
-      </a>
+        <div class="toc-divider"></div>
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        Changelogs
-      </a>
+        <div class="toc-extra-title">Need Help?</div>
+        <a href="#" class="toc-extra-link">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+          </svg>
+          GitHub
+        </a>
+    </aside>
 
-      <div class="nav-divider"></div>
+  </div><!-- end shell -->
 
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Community
-      </a>
-    </div>
-  </aside>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-  <!-- Main Content -->
-  <main>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-      Docs
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      Guides
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>Things You Need To Know</span>
-    </div>
-
-    <!-- Page title -->
-    <h1 style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); margin-bottom:10px; line-height:1.2;">
-      Things You Need To Know
-    </h1>
-    <p style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">
-      Before you write your first line of code — read this. Especially if you're coming from a non-IT background.
-    </p>
-
-    <!-- Warning banner -->
-    <div class="reality-banner">
-      <div class="reality-banner-icon">⚠️</div>
-      <div class="reality-banner-text">
-        <strong>This page may be a hard read.</strong>
-        It's written for students who are completely new to IT — especially those who came from a medical or science background after unsuccessful entrance exams. This is not to discourage you. It's to prepare you for what's actually ahead, because nobody else will tell you these things honestly.
-      </div>
-    </div>
-
-    <!-- Section: Myth -->
-    <div class="section-heading" id="myths">Common myths people believe</div>
-
-    <div class="page-intro">
-      <p>A lot of students enter IT with beliefs planted by relatives, YouTube thumbnails, or friends who <strong>"heard from someone"</strong> that IT is easy money, or let's just be honest, being inspired by sci-fi movies that <strong>make no sense realistically</strong>. Let's address every single one of them directly.</p>
-    </div>
-
-    <div class="myth-grid">
-      <div class="myth-card myth">
-        <div class="myth-card-label">❌ Myth</div>
-        <div class="myth-card-text"><strong>"IT is easy. You just sit and type."</strong><br/><br/>People think IT is just using computers. They confuse using technology with building it. These are completely different things.</div>
-      </div>
-      <div class="myth-card reality">
-        <div class="myth-card-label">✅ Reality</div>
-        <div class="myth-card-text"><strong>IT requires deep, consistent problem solving.</strong><br/><br/>You will spend hours debugging a single error. You will read documentation that makes no sense at first. You will fail repeatedly before things click.</div>
-      </div>
-    </div>
-
-    <div class="myth-grid">
-      <div class="myth-card myth">
-        <div class="myth-card-label">❌ Myth</div>
-        <div class="myth-card-text"><strong>"IT makes money fast and easily."</strong><br/><br/>Everyone has heard about IT salaries. Fresh graduates think they'll earn six figures within a year of graduating.</div>
-      </div>
-      <div class="myth-card reality">
-        <div class="myth-card-label">✅ Reality</div>
-        <div class="myth-card-text"><strong>Entry-level IT in Nepal is highly competitive.</strong><br/><br/>The market is flooded with graduates. Good pay comes to those who have real skills and a strong portfolio — not just a degree. A certificate alone means very little.</div>
-      </div>
-    </div>
-
-    <div class="myth-grid">
-      <div class="myth-card myth">
-        <div class="myth-card-label">❌ Myth</div>
-        <div class="myth-card-text"><strong>"A college degree is enough to get a job."</strong><br/><br/>Many students believe finishing the degree is the finish line. Just submit assignments, pass exams, done.</div>
-      </div>
-      <div class="myth-card reality">
-        <div class="myth-card-label">✅ Reality</div>
-        <div class="myth-card-text"><strong>The degree opens the door. Your skills get you the job.</strong><br/><br/>Employers look at your GitHub, your projects, what you've built. Two candidates with the same degree — the one with real projects wins every time.</div>
-      </div>
-    </div>
-
-    <div class="myth-grid">
-      <div class="myth-card myth">
-        <div class="myth-card-label">❌ Myth</div>
-        <div class="myth-card-text"><strong>"Once you learn something in IT, you're set forever."</strong><br/><br/>People think learning one language or tool is enough. "I know Python, I'm sorted."</div>
-      </div>
-      <div class="myth-card reality">
-        <div class="myth-card-label">✅ Reality</div>
-        <div class="myth-card-text"><strong>IT never stops changing. Learning never stops.</strong><br/><br/>Technologies that were industry standard 3 years ago are now being replaced. You will need to keep learning for the rest of your career — that's just the nature of this field.</div>
-      </div>
-    </div>
-
-    <!-- Section: Realities -->
-    <div class="section-heading" id="realities">The harsh realities of IT</div>
-
-    <div class="reality-block">
-      <div class="reality-block-header">
-        <div class="reality-number">01</div>
-        <div>
-          <div class="reality-block-title">Certifications never stop and they expire</div>
-          <div class="reality-block-body">
-            <p>In IT, certifications are a big part of your career, especially in fields like networking, cloud, and cybersecurity. But here's what nobody tells you: <span class="highlight-red">most certifications expire every 2–3 years.</span></p>
-            <p>That means you don't just study once. You renew. You retake. You pay again. AWS, Cisco CCNA, CompTIA Security+, Microsoft Azure, all of them have renewal requirements. This is a recurring cost of both time and money throughout your entire career.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="reality-block">
-      <div class="reality-block-header">
-        <div class="reality-number">02</div>
-        <div>
-          <div class="reality-block-title">The market changes faster than your course does</div>
-          <div class="reality-block-body">
-            <p>Your bachelors curriculum was designed years ago. By the time you graduate, some of what you studied may already be outdated. <span class="highlight-red">No college can update its syllabus as fast as the industry moves.</span></p>
-            <p>This means you are personally responsible for staying current. Follow industry news, build side projects with newer tools, and don't rely solely on what's taught in class. Your lecturers may be excellent, but the industry waits for no one.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="reality-block">
-      <div class="reality-block-header">
-        <div class="reality-number">03</div>
-        <div>
-          <div class="reality-block-title">Coming from a non-IT background puts you behind, temporarily</div>
-          <div class="reality-block-body">
-            <p>If you failed your medical entrance and switched to IT, that's completely valid. But be honest with yourself: <span class="highlight-red">students who chose IT from the start often have a head start.</span> They may have been coding since school. You haven't.</p>
-            <p>This gap is absolutely closeable! But it requires extra effort in your first year. Don't pretend the gap doesn't exist. Acknowledge it, then work harder than everyone else to close it. The students who succeed in this situation are the ones who stop comparing and start building.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="reality-block">
-      <div class="reality-block-header">
-        <div class="reality-number">04</div>
-        <div>
-          <div class="reality-block-title">Assignments and exams ≠ real skills</div>
-          <div class="reality-block-body">
-            <p>You can pass every exam in your program  with high marks and still struggle to build a working project from scratch. <span class="highlight-red">Academic performance and industry readiness are two different things.</span></p>
-            <p>Assignments are structured problems with a known answer. Real work is messy, undefined, and requires you to figure things out independently. Start building your own projects outside of coursework as early as possible, even if they're small and broken.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="reality-block">
-      <div class="reality-block-header">
-        <div class="reality-number">05</div>
-        <div>
-          <div class="reality-block-title">Imposter syndrome will hit you hard</div>
-          <div class="reality-block-body">
-            <p>At some point, probably in your early semesters, you will look around at your classmates, look at things online, and feel like you don't belong here. Like everyone else understands something you don't. <span class="highlight-red">This feeling is called imposter syndrome, and almost every developer has felt it.</span></p>
-            <p>The solution is not to feel more confident. The solution is to keep building things anyway. Confidence comes after action and not before it.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section: AI Market -->
-    <div class="section-heading" id="ai-market">IT in the current AI market</div>
-
-    <div class="ai-callout">
-      <div class="ai-callout-label">⚡ Current Reality — 2026</div>
-      <h3>AI is not replacing developers.<br/>It's replacing developers who don't use AI.</h3>
-      <p>Tools like GitHub Copilot, ChatGPT, and Claude are now part of daily development work. Students who refuse to learn how to work alongside AI tools will be at a disadvantage. Students who use AI as a crutch without understanding fundamentals will also struggle.</p>
-      <p>The sweet spot is this: <strong style="color:white;">understand the fundamentals deeply, then use AI to work faster.</strong> AI can write code — but it cannot decide what to build, debug complex system behaviour, or understand your client's actual problem. That's still your job.</p>
-    </div>
-
-    <div class="reality-block">
-      <div class="reality-block-header">
-        <div class="reality-number">06</div>
-        <div>
-          <div class="reality-block-title">AI is changing which IT skills are most valuable</div>
-          <div class="reality-block-body">
-            <p>Basic code writing is being automated. <span class="highlight-red">Jobs that involve only repetitive coding tasks are at risk.</span> What's growing in demand are roles that require human judgment — system architecture, security, UX thinking, prompt engineering, and managing AI pipelines.</p>
-            <p>Islington's BSc Computing with AI programme addresses this directly. But regardless of which programme you're in, <span class="highlight-green">start learning what AI cannot easily replace:</span> problem definition, communication, debugging complex systems, and building things end-to-end.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="reality-block">
-      <div class="reality-block-header">
-        <div class="reality-number">07</div>
-        <div>
-          <div class="reality-block-title">The Nepal IT market vs the global IT market</div>
-          <div class="reality-block-body">
-            <p>Local IT jobs in Nepal are growing, but slowly. <span class="highlight-red">The competition for good local roles is intense</span> because the number of IT graduates far exceeds available positions at quality companies.</p>
-            <p>The students who do well are typically those who build skills strong enough to work remotely for international companies or freelance globally. This is entirely possible, but it requires a level of skill significantly above the average graduate. <span class="highlight-blue">Build with this goal in mind from day one.</span></p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Section: Solutions -->
-    <div class="section-heading" id="solutions">What you should actually do</div>
-
-    <div class="content-block">
-      <div class="block-header">
-        <div class="block-icon icon-green">
-          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="block-title">A honest action plan for complete beginners</div>
-      </div>
-      <div class="block-body">
-        <p>Here's what actually works — not motivational fluff, but concrete steps based on what successful self-taught and college-taught developers consistently do.</p>
-      </div>
-
-      <div style="margin-top: 20px;">
-
-        <div class="solution-step">
-          <span class="step-badge">Step 1</span>
-          <div>
-            <div class="step-content-title">Accept where you are starting from</div>
-            <div class="step-content-body">If you're new to IT, admit it fully. Don't fake confidence. Don't pretend concepts make sense when they don't. Ask questions, even the ones that feel embarrassing. Every senior developer has googled "how does a for loop work" at some point.</div>
-          </div>
-        </div>
-
-        <div class="solution-step">
-          <span class="step-badge">Step 2</span>
-          <div>
-            <div class="step-content-title">Learn the fundamentals before jumping to frameworks</div>
-            <div class="step-content-body">Don't rush to React, Flutter, or Django. Learn plain HTML, CSS, and JavaScript first properly. Understand how the web works. Build small ugly projects. The fundamentals will carry you through every technology change that comes after.</div>
-          </div>
-        </div>
-
-        <div class="solution-step">
-          <span class="step-badge">Step 3</span>
-          <div>
-            <div class="step-content-title">Build something every week, no matter how small</div>
-            <div class="step-content-body">A calculator. A to-do list. A personal page. It doesn't matter how basic it is. The habit of finishing and shipping things is more valuable than studying theory. Every project you complete teaches you things that no tutorial can.</div>
-          </div>
-        </div>
-
-        <div class="solution-step">
-          <span class="step-badge">Step 4</span>
-          <div>
-            <div class="step-content-title">Put everything on GitHub from day one</div>
-            <div class="step-content-body">Even your messy beginner projects. Your GitHub profile is your real CV in IT. A hiring manager will look at your GitHub before they look at your degree certificate. Start building that history now, not in your final year.</div>
-          </div>
-        </div>
-
-        <div class="solution-step">
-          <span class="step-badge">Step 5</span>
-          <div>
-            <div class="step-content-title">Use AI tools but understand what they're doing</div>
-            <div class="step-content-body">Use GitHub Copilot or ChatGPT to help you code. But never blindly copy code you don't understand. Always read it, question it, break it, and rebuild it. AI is a multiplier and it multiplies the output of people who understand what they're doing, and it exposes the people who don't.</div>
-          </div>
-        </div>
-
-        <div class="solution-step">
-          <span class="step-badge">Step 6</span>
-          <div>
-            <div class="step-content-title">Pick one specialisation and go deep</div>
-            <div class="step-content-body">Web development, networking, cybersecurity or AI/ML; pick one direction by your second year and go deep into it. Being average at everything gets you nowhere. Being genuinely strong in one area gets you hired. You can always branch out later once you have a foundation.</div>
-          </div>
-        </div>
-
-        <div class="solution-step">
-          <span class="step-badge">Step 7</span>
-          <div>
-            <div class="step-content-title">Find your community; online and locally</div>
-            <div class="step-content-body">Join Discord servers, follow developers on Twitter/X, attend local tech meetups by your place. The people you learn alongside and the seniors you interact with will shape your career more than any single course. Don't study in isolation.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Bottom nav -->
-    <div style="display:flex; justify-content:flex-end; margin-top:32px; padding-top:24px; border-top:1px solid var(--border);">
-      <a href="#" class="block-link" style="font-size:0.9rem;">
-        Next: What We Recommend
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-      </a>
-    </div>
-
-  </main>
-
-  <!-- Right Sidebar -->
-  <aside class="right">
-    <div class="toc-title">On This Page</div>
-    <ul class="toc-list">
-      <li><a href="#myths" class="active">Common Myths</a></li>
-      <li><a href="#realities">Harsh Realities</a></li>
-      <li><a href="#ai-market">IT & AI Market</a></li>
-      <li><a href="#solutions">What To Do</a></li>
-    </ul>
-
-    <div class="toc-divider"></div>
-
-    <div class="toc-extra-title">In This Guide</div>
-    <a href="#" class="toc-extra-link">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      What We Recommend
-    </a>
-    <a href="#" class="toc-extra-link">
-      <svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      Your First Project
-    </a>
-
-    <div class="toc-divider"></div>
-
-    <div class="toc-extra-title">Need Help?</div>
-    <a href="#" class="toc-extra-link">
-      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      GitHub
-    </a>
-  </aside>
-
-</div><!-- end shell -->
-
-<script>
-  // ── Theme toggle ──────────────────────────────
-  const toggle = document.getElementById('theme-toggle');
-  const html   = document.documentElement;
-  const saved  = localStorage.getItem('devdocs-theme');
-  if (saved) html.setAttribute('data-theme', saved);
-  toggle.addEventListener('click', () => {
-    const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    html.setAttribute('data-theme', next);
-    localStorage.setItem('devdocs-theme', next);
-  });
-
-  // ── Active TOC on scroll ──────────────────────
-  const sections = document.querySelectorAll('[id]');
-  const tocLinks = document.querySelectorAll('.toc-list a');
-
-  function setActiveLink() {
-    let currentId = '';
-
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      if (sectionTop <= 120) {
-        currentId = section.getAttribute('id');
-      }
+  <script>
+    // ── Theme toggle ──────────────────────────────
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('devdocs-theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    toggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('devdocs-theme', next);
     });
 
-    tocLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentId}`) {
-        link.classList.add('active');
-      }
-    });
-  }
+    // ── Active TOC on scroll ──────────────────────
+    const sections = document.querySelectorAll('[id]');
+    const tocLinks = document.querySelectorAll('.toc-list a');
 
-  // Run on scroll and on page load
-  window.addEventListener('scroll', setActiveLink);
-  window.addEventListener('load', setActiveLink);
-</script>
+    function setActiveLink() {
+      let currentId = '';
+
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop <= 120) {
+          currentId = section.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    // Run on scroll and on page load
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', setActiveLink);
+
+    // Hamburger sidebar toggle
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.querySelector('aside.left');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    });
+  </script>
 
 </body>
+
 </html>
