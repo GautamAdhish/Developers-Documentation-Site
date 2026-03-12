@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concepts — ASOBI Game Portal — DevDocs</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <style>
+    /* Showcase box */
+    .project-showcase {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+      background: var(--surface);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .project-screenshot {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid var(--border);
+      max-height: 320px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .project-showcase-body {
+      padding: 20px 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .project-showcase-info h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .project-showcase-info p {
+      font-size: 0.855rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    .project-showcase-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .project-showcase-link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .project-showcase-link:hover {
+      background: var(--accent-soft);
+    }
+
+    .project-showcase-link svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* Concept Block  */
+    .concept-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .concept-block-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 22px;
+      border-bottom: 1px solid var(--border);
+      transition: border-color 0.25s;
+    }
+
+    .concept-lang-badge {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .badge-html {
+      background: #fff0e6;
+      color: #c06820;
+    }
+
+    .badge-css {
+      background: #e6f0ff;
+      color: #1a5cbf;
+    }
+
+    .badge-js {
+      background: #fffbe6;
+      color: #9a7a00;
+    }
+
+    [data-theme="dark"] .badge-html {
+      background: #2a1a0a;
+      color: #e8924f;
+    }
+
+    [data-theme="dark"] .badge-css {
+      background: #0a1a2a;
+      color: #6aacff;
+    }
+
+    [data-theme="dark"] .badge-js {
+      background: #2a2600;
+      color: #e0c840;
+    }
+
+    .concept-block-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .concept-block-body {
+      padding: 20px 22px 22px;
+    }
+
+    .concept-block-body p {
+      font-size: 0.875rem;
+      line-height: 1.8;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .concept-block-body p strong {
+      color: var(--text);
+    }
+
+    .concept-block-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* ── Code snippet   */
+    .code-block {
+      background: #0f0f1a;
+      border: 1px solid #2a2a42;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 14px 0;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.8rem;
+      line-height: 1.75;
+      white-space: pre;
+      color: #c8c0e0;
+    }
+
+    /* syntax colours */
+    .t {
+      color: #f7924f;
+    }
+
+    /* tag / keyword */
+    .a {
+      color: #7dd3a8;
+    }
+
+    /* attribute / property */
+    .v {
+      color: #ffd580;
+    }
+
+    /* value / string */
+    .c {
+      color: #4a4a6a;
+    }
+
+    /* comment */
+    .fn {
+      color: #a8c8ff;
+    }
+
+    /* function / selector */
+    .n {
+      color: #f7924f;
+    }
+
+    /* number */
+    .p {
+      color: #c084fc;
+    }
+
+    /* punctuation / special */
+
+    /* code label */
+    .code-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    /* callout inside concept */
+    .concept-note {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 16px;
+      margin: 14px 0;
+      font-size: 0.845rem;
+      line-height: 1.7;
+      color: var(--muted);
+      transition: background 0.25s;
+    }
+
+    .concept-note strong {
+      color: var(--text);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ── Header     -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+      </div>
+      <span class="logo-text">Dev<span>Docs</span></span>
+    </div>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+      <input type="text" placeholder="Search docs…" aria-label="Search documentation" />
+    </div>
+
+    <nav class="nav-icons">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+      </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg id="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ── Shell    ─ -->
+  <div class="shell">
+
+    <!-- Left Sidebar -->
+    <aside class="left">
+      <div class="nav-section">
+        <div class="nav-label">Menu</div>
+
+        <a href="index.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Getting Started
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          Guides
+        </a>
+        <div class="nav-sub">
+          <a href="things-you-need-to-know.html" class="nav-item">Things You Need To Know</a>
+          <a href="what-we-recommend.html" class="nav-item">What We Recommend</a>
+          <a href="your-first-project.html" class="nav-item">Your First Project</a>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          Learning Resources
+        </a>
+
+        <a href="#" class="nav-item active">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          Concepts
+        </a>
+        <div class="nav-sub">
+          <a href="concepts-asobi.html" class="nav-item active">ASOBI Game Portal</a>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Changelogs
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Community
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        Docs
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        Concepts
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span>ASOBI Game Portal</span>
+      </div>
+
+      <!-- Page title -->
+      <h1
+        style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); margin-bottom:10px; line-height:1.2;">
+        What Can You Build? — ASOBI Game Portal
+      </h1>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">
+        A real project built with only HTML, CSS, and JavaScript — and a breakdown of the trickiest parts so you
+        understand how it actually works.
+      </p>
+
+      <!-- ── PROJECT SHOWCASE    ──── -->
+      <div class="project-showcase" id="showcase">
+        <img src="../IMAGES/asobi-preview.png" alt="ASOBI Game Portal screenshot" class="project-screenshot" />
+        <div class="project-showcase-body">
+          <div class="project-showcase-info">
+            <h2>ASOBI — Mini Game Portal</h2>
+            <p>A fully functional browser-based game portal featuring Snake, Rock Paper Scissors, Tic Tac Toe, and more.
+              Built entirely with HTML, CSS, and vanilla JavaScript — no frameworks, no libraries. This is exactly the
+              kind of project you can build once you know the fundamentals.</p>
+            <div class="project-showcase-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">CSS Animations</span>
+              <span class="project-tag">Responsive Design</span>
+              <span class="project-tag">DOM Manipulation</span>
+            </div>
+          </div>
+          <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" class="project-showcase-link"
+            target="_blank">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <!--  INTRO -->
+      <div class="section-heading" id="intro">What this project teaches you</div>
+
+      <div class="content-block">
+        <div class="block-body">
+          <p>ASOBI looks impressive — dark theme, glowing purple effects, animated text, a responsive navbar, and
+            multiple working games. But when you look at the actual code, it is built from concepts you have already
+            started learning. <strong>There is no magic here, just HTML, CSS, and JavaScript used well.</strong></p>
+          <p>This page breaks down the parts of the code that beginners usually find confusing — not to overwhelm you,
+            but to show you that once you understand these pieces, a project like this is completely within your reach.
+          </p>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+         HTML CONCEPTS
+    ═══════════════════════════════════════════════ -->
+      <div class="section-heading" id="html">HTML — Structure & Custom Fonts</div>
+
+      <!-- @font-face -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-html">HTML</span>
+          <div class="concept-block-title">Loading a custom font with @font-face</div>
+        </div>
+        <div class="concept-block-body">
+          <p>ASOBI uses a custom pixel font called "Minecraft" that you won't find on Google Fonts. Instead, the font
+            file is stored locally inside the project and loaded manually using a CSS rule called
+            <strong>@font-face</strong>. You will see it declared inside a <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">&lt;style&gt;</code>
+            tag in the HTML.
+          </p>
+
+          <div class="code-label">From index.html</div>
+          <div class="code-block"><code><span class="t">@font-face</span> {
+  <span class="a">font-family</span>: <span class="v">"Minecraft"</span>;
+  <span class="c">/* tell the browser what to call this font */</span>
+
+  <span class="a">src</span>: <span class="fn">url</span>(<span class="v">"./assets/fonts/Minecraft.ttf"</span>) <span class="fn">format</span>(<span class="v">"truetype"</span>);
+  <span class="c">/* point to the actual font file on your computer */</span>
+}</code></div>
+
+          <p><strong>font-family</strong> is the name you make up — you use this name later in CSS whenever you write
+            <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">font-family: "Minecraft"</code>.
+            The <strong>src</strong> is the path to the font file. <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">./assets/fonts/</code>
+            means "start from the current folder, go into assets, then fonts". The <strong>format("truetype")</strong>
+            tells the browser what kind of font file it is — <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent)">.ttf</code>
+            files are always truetype.
+          </p>
+
+          <div class="concept-note">
+            <strong>Why does this matter?</strong> Every professional project uses custom fonts. Understanding
+            @font-face means you are not limited to system fonts — you can use any font you download.
+          </div>
+        </div>
+      </div>
+
+      <!-- Splitting text into spans -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-html">HTML</span>
+          <div class="concept-block-title">Wrapping each letter in its own span</div>
+        </div>
+        <div class="concept-block-body">
+          <p>On the welcome screen, each letter of "ASOBI" bounces independently. To make that work, each letter had to
+            be its own separate HTML element. That is why you see this in the code instead of just writing the word
+            normally.</p>
+
+          <div class="code-label">From index.html</div>
+          <div class="code-block"><code><span class="t">&lt;h1</span> <span class="a">class</span>=<span class="v">"welcome"</span><span class="t">&gt;</span>
+  <span class="t">&lt;span&gt;</span>A<span class="t">&lt;/span&gt;</span>
+  <span class="t">&lt;span&gt;</span>S<span class="t">&lt;/span&gt;</span>
+  <span class="t">&lt;span&gt;</span>O<span class="t">&lt;/span&gt;</span>
+  <span class="t">&lt;span&gt;</span>B<span class="t">&lt;/span&gt;</span>
+  <span class="t">&lt;span&gt;</span>I<span class="t">&lt;/span&gt;</span>
+<span class="t">&lt;/h1&gt;</span></code></div>
+
+          <p>A <strong>&lt;span&gt;</strong> is an invisible inline container. It has no visual effect on its own — it
+            just groups something so CSS can target it. Because each letter is now its own element, CSS can apply a
+            different animation delay to each one, making them bounce at slightly different times instead of all at
+            once.</p>
+
+          <div class="concept-note">
+            <strong>Remember this pattern.</strong> Any time you want to animate, style, or control individual
+            characters or words differently, wrap them in spans. You will use this trick constantly.
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+         CSS CONCEPTS
+    ═══════════════════════════════════════════════ -->
+      <div class="section-heading" id="css">CSS — Animations, Glows & Responsive Layout</div>
+
+      <!-- @keyframes + animation-delay -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-css">CSS</span>
+          <div class="concept-block-title">@keyframes animations and staggered delays</div>
+        </div>
+        <div class="concept-block-body">
+          <p>The bouncing letters on the welcome screen are made with a CSS <strong>@keyframes</strong> animation. This
+            is how you define a motion in CSS — you describe where something starts, where it goes, and where it ends
+            up. Then you attach that motion to an element.</p>
+
+          <div class="code-label">From index.html — defining the animation</div>
+          <div class="code-block"><code><span class="t">@keyframes</span> <span class="fn">bounce</span> {
+  <span class="n">0%</span>, <span class="n">100%</span> {
+    <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">0</span>);
+    <span class="c">/* start and end in the original position */</span>
+  }
+  <span class="n">50%</span> {
+    <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">-20px</span>);
+    <span class="c">/* at the halfway point, move 20px upward */</span>
+  }
+}</code></div>
+
+          <div class="code-label">From index.html — applying it with staggered delays</div>
+          <div class="code-block">
+            <code><span class="fn">.welcome span</span> {
+  <span class="a">animation</span>: <span class="fn">bounce</span> <span class="n">1s</span> infinite;
+  <span class="c">/* run the bounce animation, 1 second per loop, forever */</span>
+}
+
+<span class="fn">.welcome span:nth-child(1)</span> { <span class="a">animation-delay</span>: <span class="n">0s</span>; }
+<span class="fn">.welcome span:nth-child(2)</span> { <span class="a">animation-delay</span>: <span class="n">0.1s</span>; }
+<span class="fn">.welcome span:nth-child(3)</span> { <span class="a">animation-delay</span>: <span class="n">0.2s</span>; }
+<span class="fn">.welcome span:nth-child(4)</span> { <span class="a">animation-delay</span>: <span class="n">0.3s</span>; }
+<span class="fn">.welcome span:nth-child(5)</span> { <span class="a">animation-delay</span>: <span class="n">0.4s</span>; }</code>
+          </div>
+
+          <p><strong>:nth-child()</strong> is a CSS selector that targets an element based on its position. <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">:nth-child(2)</code>
+            means "the second child element inside the parent." By giving each span a slightly larger delay, the letters
+            start their bounce at different moments, creating the wave effect. Without the delays, they would all bounce
+            at exactly the same time and look like a single block.</p>
+
+          <div class="concept-note">
+            <strong>translateY</strong> moves an element up or down. Negative values move up, positive values move down.
+            It is part of the <strong>transform</strong> property family, which also includes translateX (left/right),
+            scale (resize), and rotate.
+          </div>
+        </div>
+      </div>
+
+      <!-- radial-gradient background -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-css">CSS</span>
+          <div class="concept-block-title">radial-gradient for the dark glowing background</div>
+        </div>
+        <div class="concept-block-body">
+          <p>The deep dark purple background that looks like a glow in the centre of the screen is not an image — it is
+            a single line of CSS using <strong>radial-gradient</strong>. A radial gradient radiates outward from a
+            centre point, fading from one color to another.</p>
+
+          <div class="code-label">From styles.css</div>
+          <div class="code-block"><code><span class="fn">body</span> {
+  <span class="a">background</span>: <span class="fn">radial-gradient</span>(circle, <span class="v">#1a002b</span>, <span class="v">#000</span>);
+  <span class="c">/* starts dark purple in the centre, fades to pure black at the edges */</span>
+}</code></div>
+
+          <p>The word <strong>circle</strong> sets the shape of the gradient. <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">#1a002b</code>
+            is the inner color — a very dark purple. <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">#000</code>
+            is pure black, which appears at the outer edges. This single line replaces what you might expect to be a
+            complex background image setup.</p>
+
+          <div class="concept-note">
+            <strong>linear-gradient</strong> goes in a straight line (top to bottom, left to right, or at an angle).
+            <strong>radial-gradient</strong> radiates from a point outward. Both are extremely useful for building rich
+            backgrounds without using image files.
+          </div>
+        </div>
+      </div>
+
+      <!-- clamp -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-css">CSS</span>
+          <div class="concept-block-title">clamp() — fluid font size that adapts to screen width</div>
+        </div>
+        <div class="concept-block-body">
+          <p>The welcome text on the landing page scales smoothly as you resize the browser window — tiny on mobile,
+            enormous on a big screen. This is done using the <strong>clamp()</strong> function, which lets you set a
+            minimum size, a preferred size, and a maximum size all in one value.</p>
+
+          <div class="code-label">From index.html</div>
+          <div class="code-block"><code><span class="fn">.welcome</span> {
+  <span class="a">font-size</span>: <span class="fn">clamp</span>(<span class="n">2.5rem</span>, <span class="n">8vw</span>, <span class="n">20rem</span>);
+  <span class="c">/*       minimum  preferred  maximum        */</span>
+}</code></div>
+
+          <p><strong>2.5rem</strong> is the smallest the text will ever be — even on a tiny phone. <strong>8vw</strong>
+            is the preferred size — 8% of the viewport width, so it scales as the screen gets wider.
+            <strong>20rem</strong> is the ceiling — no matter how large the screen is, the text will never exceed this
+            size. Without clamp, you would need multiple media queries just to handle font scaling.
+          </p>
+
+          <div class="concept-note">
+            <strong>vw</strong> stands for "viewport width" — 1vw is 1% of the width of the browser window. So 8vw on a
+            1000px wide screen is 80px. This unit is what makes the font truly fluid rather than just jumping between
+            fixed sizes at breakpoints.
+          </div>
+        </div>
+      </div>
+
+      <!-- sticky navbar + z-index -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-css">CSS</span>
+          <div class="concept-block-title">position: sticky and z-index — keeping the navbar on top</div>
+        </div>
+        <div class="concept-block-body">
+          <p>The navbar stays fixed at the top of the page as you scroll. This is done with <strong>position:
+              sticky</strong> combined with <strong>top: 0</strong>. But there is also a <strong>z-index</strong> value
+            on it — and that is the part beginners often miss.</p>
+
+          <div class="code-label">From styles.css</div>
+          <div class="code-block"><code><span class="fn">.navbar</span> {
+  <span class="a">position</span>: sticky;
+  <span class="c">/* stays in the flow of the document but sticks when you scroll */</span>
+
+  <span class="a">top</span>: <span class="n">0</span>;
+  <span class="c">/* sticks to the very top of the viewport */</span>
+
+  <span class="a">z-index</span>: <span class="n">9</span>;
+  <span class="c">/* sits above other content so nothing overlaps it */</span>
+
+  <span class="a">background</span>: <span class="fn">rgba</span>(<span class="n">10</span>, <span class="n">0</span>, <span class="n">20</span>, <span class="n">0.8</span>);
+  <span class="c">/* semi-transparent dark background so content shows through slightly */</span>
+}</code></div>
+
+          <p><strong>z-index</strong> controls the stacking order of elements on the page — think of it like layers in a
+            drawing app. Higher z-index means closer to the front. Without it, page content could scroll on top of the
+            navbar and cover it. <strong>rgba()</strong> is like a hex color but with a fourth value for transparency —
+            0 is invisible, 1 is fully solid, and 0.8 is mostly opaque with a slight see-through effect.</p>
+
+          <div class="concept-note">
+            <strong>position: sticky</strong> is different from <strong>position: fixed</strong>. Fixed removes the
+            element from the page flow entirely and pins it to the screen. Sticky keeps it in the flow and only starts
+            sticking once the user scrolls to it. Sticky is almost always the better choice for navbars.
+          </div>
+        </div>
+      </div>
+
+      <!-- hamburger animation -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-css">CSS</span>
+          <div class="concept-block-title">Animating the hamburger into an X using transform</div>
+        </div>
+        <div class="concept-block-body">
+          <p>The hamburger menu icon — three horizontal lines — transforms into an X when clicked. No images are
+            swapped, no icons are hidden and shown. The three lines literally rotate and move using CSS
+            <strong>transform</strong>, triggered by an <strong>.active</strong> class that JavaScript adds.
+          </p>
+
+          <div class="code-label">From styles.css</div>
+          <div class="code-block"><code><span class="c">/* default state — three plain lines */</span>
+<span class="fn">.hamburger span</span> {
+  <span class="a">width</span>: <span class="n">30px</span>;
+  <span class="a">height</span>: <span class="n">3px</span>;
+  <span class="a">background</span>: <span class="v">#c084fc</span>;
+  <span class="a">transition</span>: all <span class="n">0.3s</span> ease;
+  <span class="c">/* any property that changes will animate smoothly */</span>
+}
+
+<span class="c">/* when .active is added — top line rotates to form one arm of the X */</span>
+<span class="fn">.hamburger.active span:nth-child(1)</span> {
+  <span class="a">transform</span>: <span class="fn">rotate</span>(<span class="n">45deg</span>) <span class="fn">translate</span>(<span class="n">9px</span>, <span class="n">9px</span>);
+}
+
+<span class="c">/* middle line disappears */</span>
+<span class="fn">.hamburger.active span:nth-child(2)</span> {
+  <span class="a">opacity</span>: <span class="n">0</span>;
+}
+
+<span class="c">/* bottom line rotates to form the other arm */</span>
+<span class="fn">.hamburger.active span:nth-child(3)</span> {
+  <span class="a">transform</span>: <span class="fn">rotate</span>(<span class="n">-45deg</span>) <span class="fn">translate</span>(<span class="n">8px</span>, <span class="n">-8px</span>);
+}</code></div>
+
+          <p>The <strong>translate()</strong> inside the transform moves the line slightly so the two arms of the X
+            cross exactly in the centre. Without the translate, the lines would rotate around their own starting points
+            and the X would look off. The <strong>transition</strong> property on the base state is what makes it
+            animate smoothly — without it, the change would be instant and jarring.</p>
+        </div>
+      </div>
+
+      <!-- responsive nav with media query -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-css">CSS</span>
+          <div class="concept-block-title">@media query — hiding the nav on mobile</div>
+        </div>
+        <div class="concept-block-body">
+          <p>On desktop, the navigation links are always visible in a row. On mobile, they collapse and only appear when
+            the hamburger is clicked. This switch is handled entirely in CSS using a <strong>@media query</strong> — a
+            block of CSS that only applies when the screen is a certain size.</p>
+
+          <div class="code-label">From styles.css</div>
+          <div class="code-block"><code><span class="c">/* this entire block only runs when screen is 768px or narrower */</span>
+<span class="t">@media</span> (<span class="a">max-width</span>: <span class="n">768px</span>) {
+
+  <span class="fn">.hamburger</span> {
+    <span class="a">display</span>: flex; <span class="c">/* show the hamburger button */</span>
+  }
+
+  <span class="fn">.nav-links</span> {
+    <span class="a">position</span>: absolute;
+    <span class="a">opacity</span>: <span class="n">0</span>;
+    <span class="a">visibility</span>: hidden;
+    <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">-20px</span>);
+    <span class="a">pointer-events</span>: none;
+    <span class="c">/* hidden, invisible, shifted up, and unclickable by default */</span>
+    <span class="a">transition</span>: all <span class="n">0.3s</span> ease;
+  }
+
+  <span class="fn">.nav-links.active</span> {
+    <span class="a">opacity</span>: <span class="n">1</span>;
+    <span class="a">visibility</span>: visible;
+    <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">0</span>);
+    <span class="a">pointer-events</span>: all;
+    <span class="c">/* fully visible and clickable when JavaScript adds .active */</span>
+  }
+}</code></div>
+
+          <p>Notice that the nav is hidden using <strong>three separate properties</strong> — opacity, visibility, and
+            pointer-events. Just using <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">opacity: 0</code>
+            alone makes it invisible but still clickable, which would cause accidental clicks. <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">visibility: hidden</code>
+            removes it from interaction, and <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">pointer-events: none</code>
+            is a safety net. All three together plus a transition creates the smooth dropdown effect.</p>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════
+         JS CONCEPTS
+    ═══════════════════════════════════════════════ -->
+      <div class="section-heading" id="js">JavaScript — Events, Classes & Interaction</div>
+
+      <!-- classList.toggle -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-js">JS</span>
+          <div class="concept-block-title">classList.toggle — adding and removing classes with one line</div>
+        </div>
+        <div class="concept-block-body">
+          <p>When you click the hamburger button, the menu opens. Click it again, it closes. This is handled by a single
+            method: <strong>classList.toggle()</strong>. It adds the class if it is not there, and removes it if it
+            already is — making it perfect for on/off behaviour.</p>
+
+          <div class="code-label">From main.js</div>
+          <div class="code-block"><code><span class="fn">const</span> hamburger = document.<span class="fn">getElementById</span>(<span class="v">"hamburger"</span>);
+<span class="fn">const</span> navLinks  = document.<span class="fn">getElementById</span>(<span class="v">"navLinks"</span>);
+
+hamburger.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>(e) {
+  e.<span class="fn">stopPropagation</span>();
+  <span class="c">/* prevents the click from also triggering the document listener below */</span>
+
+  hamburger.classList.<span class="fn">toggle</span>(<span class="v">"active"</span>);
+  <span class="c">/* adds "active" if not there, removes it if it is */</span>
+
+  navLinks.classList.<span class="fn">toggle</span>(<span class="v">"active"</span>);
+  <span class="c">/* same for the nav — both toggle in sync */</span>
+});</code></div>
+
+          <p>The <strong>e.stopPropagation()</strong> line is easy to miss but important. Events in JavaScript "bubble"
+            upward — a click on the hamburger also counts as a click on the document. The code below listens for
+            document clicks to close the menu, so without stopPropagation, clicking the hamburger would open the menu
+            and immediately close it again. This line stops the event from travelling further up the page.</p>
+
+          <div class="concept-note">
+            <strong>classList</strong> has three main methods you will use constantly: <strong>.add()</strong> to add a
+            class, <strong>.remove()</strong> to remove one, and <strong>.toggle()</strong> to flip between the two. All
+            of them take the class name as a string without the dot.
+          </div>
+        </div>
+      </div>
+
+      <!-- querySelectorAll + for loop -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-js">JS</span>
+          <div class="concept-block-title">querySelectorAll + for loop — closing the menu on any link click</div>
+        </div>
+        <div class="concept-block-body">
+          <p>When a user clicks a nav link, the mobile menu should close automatically. Instead of adding a click
+            listener to each link one by one, the code selects all of them at once and loops through them.</p>
+
+          <div class="code-label">From main.js</div>
+          <div class="code-block"><code><span class="fn">const</span> links = navLinks.<span class="fn">querySelectorAll</span>(<span class="v">"a"</span>);
+<span class="c">/* selects every &lt;a&gt; tag inside the nav — returns a list */</span>
+
+<span class="t">for</span> (<span class="fn">let</span> i = <span class="n">0</span>; i &lt; links.length; i++) {
+  links[i].<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>() {
+    hamburger.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+    navLinks.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+    <span class="c">/* close both the icon and the menu */</span>
+  });
+}</code></div>
+
+          <p><strong>querySelectorAll</strong> returns a NodeList — similar to an array — of every element that matches
+            the CSS selector you give it. <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">"a"</code>
+            means every anchor tag inside the nav. The <strong>for loop</strong> then walks through each one and
+            attaches the same click listener. This is much cleaner than writing five separate addEventListener calls.
+          </p>
+
+          <div class="concept-note">
+            <strong>links[i]</strong> accesses the item at position i in the list — just like accessing an item in an
+            array by its index. Indexes start at 0, so links[0] is the first link, links[1] is the second, and so on.
+          </div>
+        </div>
+      </div>
+
+      <!-- document click to close -->
+      <div class="concept-block">
+        <div class="concept-block-header">
+          <span class="concept-lang-badge badge-js">JS</span>
+          <div class="concept-block-title">document click listener — closing the menu when clicking outside</div>
+        </div>
+        <div class="concept-block-body">
+          <p>A common UX expectation is that clicking anywhere outside a dropdown closes it. ASOBI handles this by
+            listening for clicks on the entire document and checking whether the click happened inside or outside the
+            navbar elements.</p>
+
+          <div class="code-label">From main.js</div>
+          <div class="code-block"><code>document.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>(e) {
+  <span class="t">if</span> (!hamburger.<span class="fn">contains</span>(e.target) && !navLinks.<span class="fn">contains</span>(e.target)) {
+    <span class="c">/* if the click target is NOT inside the hamburger */</span>
+    <span class="c">/* AND also NOT inside the nav links... */</span>
+
+    hamburger.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+    navLinks.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+    <span class="c">/* ...then close the menu */</span>
+  }
+});</code></div>
+
+          <p><strong>e.target</strong> is the specific element the user clicked on. <strong>.contains()</strong> checks
+            whether a given element exists inside another — it returns true or false. The <strong>!</strong> at the
+            start flips the result — so <code
+              style="font-size:0.8rem; background:var(--bg); padding:1px 6px; border-radius:4px; color:var(--accent);">!hamburger.contains(e.target)</code>
+            means "the click was NOT inside the hamburger". The <strong>&&</strong> means both conditions must be true
+            for the code inside to run.</p>
+
+          <div class="concept-note">
+            This pattern — listening on document and checking .contains() — is the standard way to implement "click
+            outside to close" behaviour. You will use it for dropdowns, modals, tooltips, and side drawers.
+          </div>
+        </div>
+      </div>
+
+      <!-- ── WHAT NOW  ───── -->
+      <div class="section-heading" id="takeaway">What you should take away from this</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-blue">
+            <svg viewBox="0 0 24 24">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+          </div>
+          <div class="block-title">ASOBI is just these concepts combined</div>
+        </div>
+        <div class="block-body">
+          <p>Every impressive part of ASOBI — the glowing background, the bouncing letters, the animated hamburger, the
+            smooth mobile menu — is built from the exact concepts explained above. Custom fonts, @keyframes, clamp,
+            sticky positioning, media queries, classList, event listeners. That is the full list.</p>
+          <p>None of these are advanced topics. They are the natural next step after you understand the basics. Build
+            your portfolio, build your to-do list, build your quiz app — and by the time you sit down to make something
+            like this, you will already know most of what you need.</p>
+        </div>
+        <div class="block-tags" style="margin-top:14px;">
+          <span class="tag">@font-face</span>
+          <span class="tag">@keyframes</span>
+          <span class="tag">nth-child()</span>
+          <span class="tag">clamp()</span>
+          <span class="tag">radial-gradient</span>
+          <span class="tag">position sticky</span>
+          <span class="tag">z-index</span>
+          <span class="tag">@media query</span>
+          <span class="tag">classList.toggle</span>
+          <span class="tag">querySelectorAll</span>
+          <span class="tag">stopPropagation</span>
+          <span class="tag">.contains()</span>
+        </div>
+      </div>
+
+      <!-- Bottom nav -->
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--border);">
+        <a href="your-first-project.html" class="block-link" style="font-size:0.9rem; color:var(--muted);">
+          <svg viewBox="0 0 24 24" style="transform:rotate(180deg);">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+          Previous: Your First Project
+        </a>
+        <a href="#" class="block-link" style="font-size:0.9rem;">
+          Next: Changelogs
+          <svg viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right">
+      <div class="toc-title">On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#showcase" class="active">Project Showcase</a></li>
+        <li><a href="#intro">What It Teaches</a></li>
+        <li><a href="#html">HTML Concepts</a></li>
+        <li><a href="#css">CSS Concepts</a></li>
+        <li><a href="#js">JavaScript Concepts</a></li>
+        <li><a href="#takeaway">Key Takeaway</a></li>
+      </ul>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">Concepts Covered</div>
+      <a href="#html" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+        @font-face · span wrapping
+      </a>
+      <a href="#css" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        Animations · Gradients · clamp
+      </a>
+      <a href="#js" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z" />
+          <path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+          <path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z" />
+          <path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z" />
+          <path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z" />
+          <path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z" />
+          <path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z" />
+          <path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z" />
+        </svg>
+        classList · Events · contains
+      </a>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">View Source</div>
+      <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+        GitHub — mini-game-portal
+      </a>
+    </aside>
+
+  </div><!-- end shell -->
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <script>
+    // ── Theme toggle  
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('devdocs-theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    toggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('devdocs-theme', next);
+    });
+
+    // ── Hamburger sidebar toggle   ────
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.querySelector('aside.left');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    });
+
+    // ── Active TOC on scroll    ─
+    const sections = document.querySelectorAll('[id]');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+
+    function setActiveLink() {
+      let currentId = '';
+      sections.forEach(section => {
+        if (section.getBoundingClientRect().top <= 120) {
+          currentId = section.getAttribute('id');
+        }
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', setActiveLink);
+  </script>
+
+</body>
+
+</html>
