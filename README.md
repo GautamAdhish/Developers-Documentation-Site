@@ -19,15 +19,12 @@
 ## 📋 Table of Contents
 
 - [Overview](#-overview)
-- [Screenshots](#-screenshots)
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [Getting Started](#-getting-started)
 - [Project Structure](#-project-structure)
 - [Pages & Routes](#-pages--routes)
 - [Contributing](#-contributing)
-- [License](#-license)
-- [Author](#-author)
 
 ---
 
@@ -42,7 +39,6 @@ Whether you're onboarding new engineers or publishing open-source docs, this sit
 
 | Feature | Description |
 |---|---|
-| 🔍 **Search** | Instantly search across all documentation pages |
 | 🌙 **Dark / Light Mode** | Theme toggle for comfortable reading in any environment |
 | 📱 **Responsive Design** | Fully optimized for mobile, tablet, and desktop |
 | 🗂️ **Sidebar Navigation** | Collapsible, categorized sidebar for easy section browsing |
@@ -51,7 +47,7 @@ Whether you're onboarding new engineers or publishing open-source docs, this sit
 | 🔗 **Deep Linking** | Every section has a shareable anchor URL |
 | 🖨️ **Print-Friendly** | Clean print stylesheet for offline reading |
 | ♿ **Accessible** | ARIA labels and keyboard navigation support |
-| 🚀 **Easy Deployment** | One-command deploy to GitHub Pages or Vercel |
+| 🚀 **Easy Deployment** | One-command deploy to Vercel |
 
 ---
 
@@ -62,19 +58,11 @@ Whether you're onboarding new engineers or publishing open-source docs, this sit
 | **HTML5** | Markup & semantic structure | Latest |
 | **CSS3** | Styling, animations, theming | Latest |
 | **JavaScript (ES6+)** | Interactivity & DOM logic | ES2020+ |
-| **GitHub Pages** | Hosting & deployment | — |
+| **GitHub Pages and Vercel** | Hosting & deployment | — |
 
 ---
 
-## 🚀 Getting Started
 
-### Prerequisites
-
-| Tool | Minimum Version | Install Guide |
-|---|---|---|
-| **Git** | 2.x | [git-scm.com](https://git-scm.com/) |
-| **Node.js** *(if applicable)* | 16.x+ | [nodejs.org](https://nodejs.org/) |
-| **npm / yarn** *(if applicable)* | 7.x+ | Bundled with Node.js |
 
 ### Installation
 
@@ -114,8 +102,7 @@ Developers-Documentation-Site/
 ├── index.html              # Entry point / Home page
 ├── README.md               # Project documentation (you are here)
 │
-├── assets/
-│   ├── css/
+│─── css/
 │   │   ├── style.css       # Main stylesheet
 │   │   └── dark-mode.css   # Dark theme styles
 │   ├── js/
@@ -134,20 +121,6 @@ Developers-Documentation-Site/
     └── reference.md
 ```
 
----
-
-## 🗺️ Pages & Routes
-
-| Page | Route | Description |
-|---|---|---|
-| **Home** | `/` | Landing page with overview and quick-start links |
-| **Getting Started** | `/getting-started` | First steps and setup instructions |
-| **Installation** | `/installation` | Detailed installation guide |
-| **API Reference** | `/api-reference` | Full API/method documentation |
-| **Guides** | `/guides` | Step-by-step tutorials and how-tos |
-| **FAQ** | `/faq` | Frequently asked questions |
-
----
 
 ## 🤝 Contributing
 
@@ -168,30 +141,16 @@ Contributions are welcome and greatly appreciated! Here's how to get started:
 ```
 5. **Open a Pull Request** describing your changes
 
-### Branch Naming Convention
 
-| Type | Format | Example |
-|---|---|---|
-| New Feature | `feature/name` | `feature/dark-mode-toggle` |
-| Bug Fix | `fix/name` | `fix/sidebar-scroll` |
-| Documentation | `docs/name` | `docs/update-api-reference` |
-| Refactor | `refactor/name` | `refactor/css-variables` |
 
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
 
 ## 👨‍💻 Author
 
 <div align="center">
 
-**Gautam Adhish**
-**Saman Khanal**
-**Anjal Bhattarai**
+**Gautam Adhish |**
+**Saman Khanal |**
+**Anjal Bhattarai |**
 **Niraj Kushwaha**
 
 
@@ -201,6 +160,3 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 ---
 
-<div align="center">
-Made with ❤️ by <a href="https://github.com/GautamAdhish">Gautam Adhish</a>
-</div>
