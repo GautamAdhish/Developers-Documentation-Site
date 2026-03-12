@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What We Recommend — DevDocs</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
+  <style>
+    /* Sub Block Section */
+    .sub-block {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      margin-bottom: 12px;
+      background: var(--surface);
+      transition: box-shadow 0.2s, background 0.25s, border-color 0.25s;
+    }
+
+    .sub-block:hover {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .sub-block-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .sub-block-title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .sub-block-body {
+      font-size: 0.865rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .sub-block-body p+p {
+      margin-top: 10px;
+    }
+
+    /* Tools cards grid  */
+    .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tool-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+      transition: border-color 0.2s, background 0.25s;
+    }
+
+    .tool-card:hover {
+      border-color: var(--accent);
+    }
+
+    .tool-card-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .tool-card-desc {
+      font-size: 0.78rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .tool-card-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-top: 8px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .tool-card-tag.recommended {
+      background: #e6f9f0;
+      color: #1d8a55;
+    }
+
+    [data-theme="dark"] .tool-card-tag.recommended {
+      background: #0a2016;
+      color: #3dbb75;
+    }
+
+    /* Consistency Tracker Visual */
+    .habit-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .habit-row:last-child {
+      border-bottom: none;
+    }
+
+    .habit-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .habit-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .habit-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .habit-body {
+      font-size: 0.855rem;
+      line-height: 1.7;
+      color: var(--muted);
+    }
+
+    /* Page Intro  */
+    .page-intro {
+      background: var(--accent-soft);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      transition: background 0.25s;
+    }
+
+    [data-theme="dark"] .page-intro {
+      background: #1a2a4a;
+    }
+
+    .page-intro p {
+      font-size: 0.875rem;
+      line-height: 1.75;
+      color: var(--muted);
+    }
+
+    .page-intro p strong {
+      color: var(--text);
+    }
+
+    /* Inline tag  */
+    .inline-tag {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--tag-bg);
+      color: var(--tag-txt);
+      font-family: 'Courier New', monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header  -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
+      </div>
+      <span class="logo-text">Dev<span>Docs</span></span>
+    </div>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+      <input type="text" placeholder="Search docs…" aria-label="Search documentation" />
+    </div>
+
+    <nav class="nav-icons">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+
+      <a href="#" aria-label="GitHub">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+      </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg id="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Shell  -->
+  <div class="shell">
+
+    <!-- Left Sidebar -->
+    <aside class="left">
+      <div class="nav-section">
+        <div class="nav-label">Menu</div>
+
+        <a href="../index.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Getting Started
+        </a>
+
+        <a href="#" class="nav-item active">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          Guides
+        </a>
+        <div class="nav-sub">
+          <a href="things-you-need-to-know.html" class="nav-item">Things You Need To Know</a>
+          <a href="what-we-recommend.html" class="nav-item active">What We Recommend</a>
+          <a href="#" class="nav-item">Your First Project</a>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          Learning Resources
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          Concepts
+        </a>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Changelogs
+        </a>
+
+        <div class="nav-divider"></div>
+
+        <a href="#" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Community
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        Docs
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        Guides
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span>What We Recommend</span>
+      </div>
+
+      <!-- Page title -->
+      <h1
+        style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); margin-bottom:10px; line-height:1.2;">
+        What We Recommend
+      </h1>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">
+        A practical guide on how to learn programming properly — the tools, habits, and mindset that actually work for
+        beginners.
+      </p>
+
+      <!-- Intro -->
+      <div class="page-intro">
+        <p>There is no shortage of tutorials online. The problem isn't access to learning material — <strong>it's
+            knowing what to follow, in what order, and how to stay consistent.</strong> This page cuts through the noise
+          and tells you exactly what we recommend for a complete beginner starting from zero.</p>
+      </div>
+
+      <!-- How to learn  -->
+      <div class="section-heading" id="how-to-learn">How to actually learn a language</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-blue">
+            <svg viewBox="0 0 24 24">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+            </svg>
+          </div>
+          <div class="block-title">The right way to approach learning</div>
+        </div>
+        <div class="block-body">
+          <p>Most beginners make the same mistake — they watch tutorial after tutorial, take notes, and feel productive,
+            but never actually build anything. This is called <strong>tutorial hell</strong> and it's the biggest trap
+            in self-learning.</p>
+          <p>The only way to truly learn programming is to <strong>write code yourself</strong>, make mistakes, and fix
+            them. Reading about swimming doesn't teach you to swim.</p>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <div class="sub-block">
+            <div class="sub-block-title"><span class="dot"></span>Step 1 — Watch once, then close the video</div>
+            <div class="sub-block-body">
+              <p>Watch a tutorial once to understand the concept. Then close it and try to build the same thing from
+                memory. You will struggle — that's exactly the point. The struggle is where learning happens. Only
+                reopen the video if you are completely stuck after trying for at least 20 minutes.</p>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title"><span class="dot"></span>Step 2 — Modify what you just built</div>
+            <div class="sub-block-body">
+              <p>Once it works, break it on purpose. Change colors, add a new button, remove a section and add something
+                different. Modifying working code teaches you far more than copying it. Every modification forces you to
+                understand <em>why</em> something works, not just <em>that</em> it works.</p>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title"><span class="dot"></span>Step 3 — Build something new without a tutorial</div>
+            <div class="sub-block-body">
+              <p>After completing a few guided projects, pick a small idea entirely your own and build it with no
+                tutorial. It will be messy. Google will be your best friend. That's normal — professional developers
+                Google things every single day. The ability to search for answers and piece them together is a core
+                developer skill.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recommendation  -->
+      <div class="section-heading" id="tools">Tools we recommend</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-orange">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+              <line x1="12" y1="17" x2="12" y2="21" />
+            </svg>
+          </div>
+          <div class="block-title">Code Editors</div>
+        </div>
+        <div class="block-body">
+          <p>Your code editor is where you'll spend most of your time. Pick one and stick with it — don't jump between
+            editors in your first few months.</p>
+        </div>
+        <div class="tool-grid">
+          <div class="tool-card">
+            <div class="tool-card-name">VS Code</div>
+            <div class="tool-card-desc">Free, lightweight, massive extension library. The industry standard for web
+              development.</div>
+            <span class="tool-card-tag recommended">✓ Recommended</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-name">Sublime Text</div>
+            <div class="tool-card-desc">Fast and minimal. Great if you want something lighter with no distractions.
+            </div>
+            <span class="tool-card-tag">Alternative</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-name">Notepad++</div>
+            <div class="tool-card-desc">Ultra lightweight. Windows only. Good for quick edits but limited for full
+              projects.</div>
+            <span class="tool-card-tag">Alternative</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-green">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+            </svg>
+          </div>
+          <div class="block-title">Browsers for Development</div>
+        </div>
+        <div class="block-body">
+          <p>Not all browsers have the same developer tools. Use one of these two for all your development work — they
+            have the best built-in DevTools for inspecting, debugging, and testing your code.</p>
+        </div>
+        <div class="tool-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="tool-card">
+            <div class="tool-card-name">Google Chrome</div>
+            <div class="tool-card-desc">The most widely used dev browser. Excellent DevTools, great performance
+              profiling, and the largest community support.</div>
+            <span class="tool-card-tag recommended">✓ Recommended</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-name">Mozilla Firefox</div>
+            <div class="tool-card-desc">Outstanding CSS grid and flexbox inspector. Great privacy defaults. A strong
+              second choice for web development.</div>
+            <span class="tool-card-tag recommended">✓ Recommended</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-blue">
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+            </svg>
+          </div>
+          <div class="block-title">Version Control</div>
+        </div>
+        <div class="block-body">
+          <p>Start using Git and GitHub from your very first project — even if it feels unnecessary at the start.
+            Version control is non-negotiable in any professional environment and the earlier you build the habit, the
+            easier it becomes.</p>
+        </div>
+        <div class="tool-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="tool-card">
+            <div class="tool-card-name">Git</div>
+            <div class="tool-card-desc">The tool that tracks every change you make to your code. Installed locally on
+              your machine.</div>
+            <span class="tool-card-tag recommended">✓ Essential</span>
+          </div>
+          <div class="tool-card">
+            <div class="tool-card-name">GitHub</div>
+            <div class="tool-card-desc">Where your code lives online. Your GitHub profile is your developer portfolio —
+              start building it now.</div>
+            <span class="tool-card-tag recommended">✓ Essential</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consistency Tips -->
+      <div class="section-heading" id="consistency">Consistency tips that actually work</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-green">
+            <svg viewBox="0 0 24 24">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+            </svg>
+          </div>
+          <div class="block-title">Building a learning habit</div>
+        </div>
+        <div class="block-body">
+          <p>The biggest difference between students who succeed and those who don't isn't talent — it's consistency.
+            Here's what actually helps.</p>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <div class="habit-row">
+            <div class="habit-icon">
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <div>
+              <div class="habit-title">Code for 30 minutes every day — not 4 hours once a week</div>
+              <div class="habit-body">Daily practice builds memory and muscle. Irregular long sessions feel productive
+                but most of what you learned fades quickly. 30 focused minutes daily beats a weekend marathon every
+                time.</div>
+            </div>
+          </div>
+
+          <div class="habit-row">
+            <div class="habit-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+              </svg>
+            </div>
+            <div>
+              <div class="habit-title">Keep a learning journal</div>
+              <div class="habit-body">After each coding session, write 2–3 sentences about what you learned and what
+                confused you. This forces you to process what you studied and builds a personal reference you can look
+                back on. It doesn't need to be neat — just honest.</div>
+            </div>
+          </div>
+
+          <div class="habit-row">
+            <div class="habit-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div>
+              <div class="habit-title">Learn with someone else</div>
+              <div class="habit-body">Find a classmate at the same level and work through problems together. Teaching
+                someone else a concept is the fastest way to solidify your own understanding. Even just explaining your
+                code out loud to another person will reveal gaps you didn't know you had.</div>
+            </div>
+          </div>
+
+          <div class="habit-row">
+            <div class="habit-icon">
+              <svg viewBox="0 0 24 24">
+                <polyline points="9 11 12 14 22 4" />
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+              </svg>
+            </div>
+            <div>
+              <div class="habit-title">Set a tiny daily goal, not a big weekly one</div>
+              <div class="habit-body">Instead of "finish the CSS section this week", try "style the navbar today".
+                Small, completable goals give you a sense of progress that keeps momentum going. Big goals feel
+                overwhelming and are easy to push to tomorrow.</div>
+            </div>
+          </div>
+
+          <div class="habit-row">
+            <div class="habit-icon">
+              <svg viewBox="0 0 24 24">
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
+              </svg>
+            </div>
+            <div>
+              <div class="habit-title">Track what you've built, not what you've watched</div>
+              <div class="habit-body">Measure your progress by finished projects and pushed commits — not by hours of
+                tutorials watched. A list of 10 small projects you built is worth far more than 100 hours of videos you
+                passively consumed.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Learning Resources -->
+      <div class="section-heading" id="resources">Where to learn</div>
+
+      <div class="content-block">
+        <div class="block-header">
+          <div class="block-icon icon-orange">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+            </svg>
+          </div>
+          <div class="block-title">Recommended learning platforms</div>
+        </div>
+        <div class="block-body">
+          <p>These are free or low-cost resources used by millions of developers. Don't jump between all of them — pick
+            one primary resource and use the others as supplements.</p>
+        </div>
+
+        <div style="margin-top: 18px;">
+          <div class="sub-block">
+            <div class="sub-block-title"><span class="dot"></span>MDN Web Docs — your primary reference</div>
+            <div class="sub-block-body">
+              <p><strong>mdn.mozilla.org</strong> — The official documentation for HTML, CSS, and JavaScript. Bookmark
+                it. Every time you encounter a tag, property, or method you don't understand, look it up here first.
+                It's comprehensive, accurate, and always up to date.</p>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title"><span class="dot"></span>freeCodeCamp — structured curriculum</div>
+            <div class="sub-block-body">
+              <p><strong>freecodecamp.org</strong> — A completely free, structured curriculum that takes you from zero
+                to building projects. The HTML/CSS and JavaScript sections are excellent for beginners. You get
+                certifications on completion which you can add to your GitHub and LinkedIn.</p>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title"><span class="dot"></span>The Odin Project — project-based learning</div>
+            <div class="sub-block-body">
+              <p><strong>theodinproject.com</strong> — A free, open-source full-stack curriculum entirely focused on
+                building real projects. It's more challenging than freeCodeCamp but produces stronger developers. Highly
+                recommended once you've covered the basics.</p>
+            </div>
+          </div>
+
+          <div class="sub-block">
+            <div class="sub-block-title"><span class="dot"></span>CS50 by Harvard — for deeper understanding</div>
+            <div class="sub-block-body">
+              <p><strong>cs50.harvard.edu</strong> — A free online course from Harvard covering the fundamentals of
+                computer science. Harder than most beginner resources, but it builds a genuine understanding of how
+                computers and programming actually work — not just how to copy syntax.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom nav -->
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--border);">
+        <a href="things-you-need-to-know.html" class="block-link" style="font-size:0.9rem; color:var(--muted);">
+          <svg viewBox="0 0 24 24" style="transform:rotate(180deg);">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+          Previous: Things You Need To Know
+        </a>
+        <a href="#" class="block-link" style="font-size:0.9rem;">
+          Next: Your First Project
+          <svg viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
+
+    </main>
+
+    <!-- Right Sidebar -->
+    <aside class="right">
+      <div class="toc-title">On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#how-to-learn" class="active">How to Learn</a></li>
+        <li><a href="#tools">Tools We Recommend</a></li>
+        <li><a href="#consistency">Consistency Tips</a></li>
+        <li><a href="#resources">Where to Learn</a></li>
+      </ul>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">In This Guide</div>
+      <a href="things-you-need-to-know.html" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        Things You Need To Know
+      </a>
+      <a href="#" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <polygon points="5 3 19 12 5 21 5 3" />
+        </svg>
+        Your First Project
+      </a>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">Need Help?</div>
+
+      <a href="#" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+        GitHub
+      </a>
+    </aside>
+
+  </div><!-- end shell -->
+
+  <script>
+    // Switch Theme
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    const saved = localStorage.getItem('devdocs-theme');
+    if (saved) html.setAttribute('data-theme', saved);
+    toggle.addEventListener('click', () => {
+      const next = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('devdocs-theme', next);
+    });
+
+    // Active Scroll
+    const sections = document.querySelectorAll('[id]');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+
+    function setActiveLink() {
+      let currentId = '';
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop <= 120) currentId = section.getAttribute('id');
+      });
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveLink);
+    window.addEventListener('load', setActiveLink);
+
+    // Hamburger sidebar toggle
+    const hamburger = document.getElementById('hamburger');
+    const sidebar = document.querySelector('aside.left');
+    const overlay = document.getElementById('sidebar-overlay');
+
+    hamburger.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    });
+  </script>
+
+</body>
+
+</html>
