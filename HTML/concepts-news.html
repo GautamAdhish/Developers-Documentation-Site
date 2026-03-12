@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Concepts — ASOBI Game Portal — DevDocs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="../CSS/style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concepts — The NGN News Portal — DevDocs</title>
+  <link rel="stylesheet" href="../CSS/style.css" />
   <style>
+    /* ── No external fonts — system stack ────── */
+    body,
+    * {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+    }
 
-    /* ── Project showcase ────────────────────────── */
+    /* ── Project showcase ────────────────────── */
     .project-showcase {
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -18,13 +23,32 @@
       transition: background 0.25s, border-color 0.25s;
     }
 
-    .project-screenshot {
+    .showcase-banner {
       width: 100%;
-      display: block;
+      background: linear-gradient(135deg, #003329 0%, #359381 100%);
+      padding: 40px 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
       border-bottom: 1px solid var(--border);
-      max-height: 300px;
-      object-fit: cover;
-      object-position: top;
+    }
+
+    .showcase-banner-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .showcase-banner-text h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .showcase-banner-text p {
+      font-size: 0.875rem;
+      color: rgba(255, 255, 255, 0.75);
+      line-height: 1.6;
     }
 
     .project-showcase-body {
@@ -33,14 +57,6 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 20px;
-    }
-
-    .project-showcase-info h2 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 5px;
     }
 
     .project-showcase-info p {
@@ -67,25 +83,7 @@
       color: var(--muted);
     }
 
-    .project-gh-link {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--accent);
-      text-decoration: none;
-      border: 1px solid var(--accent);
-      padding: 8px 16px;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-
-    .project-gh-link:hover { background: var(--accent-soft); }
-    .project-gh-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
-
-    /* ── Concept title box (large — "Programming Concept 1") ── */
+    /* ── Concept title box (large) ───────────── */
     .concept-title-box {
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -97,13 +95,12 @@
     }
 
     .concept-title-box span {
-      font-family: 'Syne', sans-serif;
       font-size: 1.05rem;
       font-weight: 700;
       color: var(--text);
     }
 
-    /* ── Plain text description block ───────────── */
+    /* ── Plain text description block ────────── */
     .concept-desc {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -116,10 +113,15 @@
       transition: background 0.25s, border-color 0.25s;
     }
 
-    .concept-desc p + p { margin-top: 10px; }
-    .concept-desc strong { color: var(--text); }
+    .concept-desc p+p {
+      margin-top: 10px;
+    }
 
-    /* ── Sub-box (smaller, indented — "Project Idea 1") ── */
+    .concept-desc strong {
+      color: var(--text);
+    }
+
+    /* ── Sub-box (smaller, indented) ─────────── */
     .sub-title-box {
       border: 1px solid var(--border);
       border-radius: var(--radius);
@@ -131,13 +133,12 @@
     }
 
     .sub-title-box span {
-      font-family: 'Syne', sans-serif;
       font-size: 0.88rem;
       font-weight: 700;
       color: var(--text);
     }
 
-    /* ── Sub description (indented text block) ───── */
+    /* ── Sub description block (indented) ────── */
     .sub-desc {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -150,26 +151,21 @@
       transition: background 0.25s, border-color 0.25s;
     }
 
-    .sub-desc p + p { margin-top: 10px; }
-    .sub-desc strong { color: var(--text); }
-
-    /* code inside text */
-    .inline-code {
-      font-size: 0.8rem;
-      background: var(--bg);
-      padding: 1px 6px;
-      border-radius: 4px;
-      color: var(--accent);
-      font-family: 'Courier New', Courier, monospace;
+    .sub-desc p+p {
+      margin-top: 10px;
     }
 
-    /* code block */
+    .sub-desc strong {
+      color: var(--text);
+    }
+
+    /* ── Code block ──────────────────────────── */
     .code-block {
       background: #0f0f1a;
       border: 1px solid #2a2a42;
       border-radius: 8px;
       padding: 14px 18px;
-      margin: 12px 0 0;
+      margin: 12px 0;
       overflow-x: auto;
     }
 
@@ -181,385 +177,737 @@
       color: #c8c0e0;
     }
 
-    .t  { color: #f7924f; }
-    .a  { color: #7dd3a8; }
-    .v  { color: #ffd580; }
-    .c  { color: #4a4a6a; }
-    .fn { color: #a8c8ff; }
-    .n  { color: #f7924f; }
+    .t {
+      color: #f7924f;
+    }
 
+    .a {
+      color: #7dd3a8;
+    }
+
+    .v {
+      color: #ffd580;
+    }
+
+    .cm {
+      color: #4a4a6a;
+    }
+
+    .fn {
+      color: #a8c8ff;
+    }
+
+    .n {
+      color: #f7924f;
+    }
+
+    .ic {
+      font-size: 0.8rem;
+      background: var(--bg);
+      padding: 1px 6px;
+      border-radius: 4px;
+      color: var(--accent);
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* ── Quiz block ──────────────────────────── */
+    .quiz-block {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      margin-top: 14px;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .quiz-question {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .quiz-question::before {
+      content: '🤔  ';
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .quiz-option {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.845rem;
+      color: var(--muted);
+      cursor: pointer;
+      text-align: left;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+
+    .quiz-option:hover:not(:disabled) {
+      border-color: var(--accent);
+      color: var(--text);
+    }
+
+    .quiz-option.correct {
+      border-color: #1d8a55;
+      background: #e6f9f0;
+      color: #1d8a55;
+      font-weight: 600;
+    }
+
+    .quiz-option.wrong {
+      border-color: #c0392b;
+      background: #fdf0ef;
+      color: #c0392b;
+    }
+
+    [data-theme="dark"] .quiz-option.correct {
+      background: #0a2016;
+      color: #3dbb75;
+      border-color: #3dbb75;
+    }
+
+    [data-theme="dark"] .quiz-option.wrong {
+      background: #2a0a0a;
+      color: #ff6b6b;
+      border-color: #ff6b6b;
+    }
+
+    .quiz-feedback {
+      display: none;
+      margin-top: 12px;
+      font-size: 0.835rem;
+      font-weight: 500;
+      padding: 10px 14px;
+      border-radius: 8px;
+      line-height: 1.6;
+    }
+
+    .fb-correct {
+      background: #e6f9f0;
+      color: #1d8a55;
+      border: 1px solid #1d8a55;
+    }
+
+    .fb-wrong {
+      background: #fdf0ef;
+      color: #c0392b;
+      border: 1px solid #c0392b;
+    }
+
+    [data-theme="dark"] .fb-correct {
+      background: #0a2016;
+      color: #3dbb75;
+      border-color: #3dbb75;
+    }
+
+    [data-theme="dark"] .fb-wrong {
+      background: #2a0a0a;
+      color: #ff6b6b;
+      border-color: #ff6b6b;
+    }
   </style>
 </head>
+
 <body>
 
-<!-- ── Header ──────────────────────────────────────────── -->
-<header>
-  <div class="logo-area">
-    <div class="logo-icon">
-      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-    </div>
-    <span class="logo-text">Dev<span>Docs</span></span>
-  </div>
-
-  <div class="search-wrap">
-    <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-    <input type="text" placeholder="Search docs…" aria-label="Search documentation"/>
-  </div>
-
-  <nav class="nav-icons">
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-    <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" aria-label="GitHub">
-      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-    </a>
-    <button id="theme-toggle" aria-label="Toggle dark mode">
-      <svg id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
-      <svg id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-    </button>
-  </nav>
-</header>
-
-<!-- ── Shell ───────────────────────────────────────────── -->
-<div class="shell">
-
-  <!-- Left Sidebar -->
-  <aside class="left">
-    <div class="nav-section">
-      <div class="nav-label">Menu</div>
-
-      <a href="index.html" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Getting Started
-      </a>
-
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        Guides
-      </a>
-      <div class="nav-sub">
-        <a href="things-you-need-to-know.html" class="nav-item">Things You Need To Know</a>
-        <a href="what-we-recommend.html" class="nav-item">What We Recommend</a>
-        <a href="your-first-project.html" class="nav-item">Your First Project</a>
+  <!-- ── Header ──────────────────────────────────────────── -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        </svg>
       </div>
-
-      <div class="nav-divider"></div>
-
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-        Learning Resources
-      </a>
-
-      <a href="#" class="nav-item active">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Concepts
-      </a>
-      <div class="nav-sub">
-        <a href="concepts-asobi.html" class="nav-item active">ASOBI Game Portal</a>
-      </div>
-
-      <div class="nav-divider"></div>
-
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-        Changelogs
-      </a>
-
-      <a href="#" class="nav-item">
-        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Community
-      </a>
-    </div>
-  </aside>
-
-  <!-- Main Content -->
-  <main>
-
-    <!-- Breadcrumb -->
-    <div class="breadcrumb">
-      Docs
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      Concepts
-      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>ASOBI Game Portal</span>
+      <span class="logo-text">Dev<span>Docs</span></span>
     </div>
 
-    <!-- Page title -->
-    <h1 style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); margin-bottom:10px; line-height:1.2;">
-      What Can You Build? — ASOBI Game Portal
-    </h1>
-    <p style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">
-      A real project built with only HTML, CSS, and JavaScript — and a breakdown of the parts that beginners usually find confusing.
-    </p>
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" stroke-width="2">
+        <circle cx="11" cy="11" r="8" />
+        <path d="m21 21-4.35-4.35" />
+      </svg>
+      <input type="text" placeholder="Search docs…" aria-label="Search documentation" />
+    </div>
 
-    <!-- Project Showcase -->
-    <div class="project-showcase" id="showcase">
-      <img src="asobi-preview.png" alt="ASOBI Game Portal" class="project-screenshot"/>
-      <div class="project-showcase-body">
-        <div class="project-showcase-info">
-          <h2>ASOBI — Mini Game Portal</h2>
-          <p>A fully functional browser-based game portal featuring Snake, Rock Paper Scissors, Tic Tac Toe and more. Built entirely with HTML, CSS, and vanilla JavaScript — no frameworks, no libraries. This is exactly the kind of project you can build once you know the fundamentals.</p>
-          <div class="project-showcase-tags">
-            <span class="project-tag">HTML</span>
-            <span class="project-tag">CSS</span>
-            <span class="project-tag">JavaScript</span>
-            <span class="project-tag">CSS Animations</span>
-            <span class="project-tag">Responsive Design</span>
-            <span class="project-tag">DOM Manipulation</span>
-          </div>
+    <nav class="nav-icons">
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+      <a href="https://github.com/GautamAdhish/Developers-Documentation-Site" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+        </svg>
+      </a>
+      <button id="theme-toggle" aria-label="Toggle dark mode">
+        <svg id="icon-sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <svg id="icon-moon" viewBox="0 0 24 24">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ── Shell ───────────────────────────────────────────── -->
+  <div class="shell">
+
+    <!-- Left Sidebar -->
+    <aside class="left">
+      <div class="nav-section">
+        <div class="nav-label">Menu</div>
+
+        <a href="../index.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          Getting Started
+        </a>
+
+        <a href="../HTML/things-you-need-to-know.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+          </svg>
+          Guides
+        </a>
+        <div class="nav-sub">
+          <a href="../HTML/things-you-need-to-know.html" class="nav-item">Things You Need To Know</a>
+          <a href="../HTML/what-we-recommend.html" class="nav-item">What We Recommend</a>
+          <a href="../HTML/your-first-project.html" class="nav-item">Your First Project</a>
         </div>
-        <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" class="project-gh-link">
-          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          View on GitHub
+
+        <div class="nav-divider"></div>
+
+        <a href="../HTML/learning-resources.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+          </svg>
+          Learning Resources
+        </a>
+
+        <a href="../HTML/concepts.html" class="nav-item active">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          Concepts
+        </a>
+        <div class="nav-sub">
+          <a href="../HTML/concepts-asobi.html" class="nav-item">ASOBI Game Portal</a>
+          <a href="../HTML/concepts-news.html" class="nav-item active">The NGN News Portal</a>
+        </div>
+
+        <div class="nav-divider"></div>
+
+        <a href="../HTML/changelogs.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+          </svg>
+          Changelogs
+        </a>
+
+        <a href="../HTML/community.html" class="nav-item">
+          <svg viewBox="0 0 24 24">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          Community
         </a>
       </div>
-    </div>
+    </aside>
 
-    <!-- ══════════════════════════════════════════
-         CONCEPT 1 — CSS Animations
+    <!-- Main Content -->
+    <main>
+
+      <div class="breadcrumb">
+        Docs
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        Concepts
+        <svg viewBox="0 0 24 24">
+          <polyline points="9 18 15 12 9 6" />
+        </svg>
+        <span>The NGN News Portal</span>
+      </div>
+
+      <h1 style="font-size:1.8rem; font-weight:800; color:var(--text); margin-bottom:10px; line-height:1.2;">
+        What Can You Build? — The NGN News Portal
+      </h1>
+      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">
+        A real news website built with only HTML, CSS, and JavaScript. Read each concept, study the code, then answer
+        the quiz to test yourself.
+      </p>
+
+      <!-- ── Project Showcase ───────────────────── -->
+      <div class="project-showcase" id="showcase">
+        <div class="showcase-banner">
+          <div class="showcase-banner-icon">📰</div>
+          <div class="showcase-banner-text">
+            <h2>The NGN — Nepal Global News</h2>
+            <p>A fully functional news portal with a parallax hero, image slideshow, card slider, sticky navbar, and
+              responsive hamburger menu — all built with plain HTML, CSS, and JavaScript.</p>
+          </div>
+        </div>
+        <div class="project-showcase-body">
+          <div class="project-showcase-info">
+            <p>This project covers some of the most commonly used real-world patterns in front-end development. Scroll
+              effects, animated slideshows, dynamic card sliders, sticky headers that change on scroll — every single
+              one of these is built from concepts you can learn and reuse in any project.</p>
+            <div class="project-showcase-tags">
+              <span class="project-tag">HTML</span>
+              <span class="project-tag">CSS</span>
+              <span class="project-tag">JavaScript</span>
+              <span class="project-tag">Parallax Scroll</span>
+              <span class="project-tag">CSS Transitions</span>
+              <span class="project-tag">DOM Manipulation</span>
+              <span class="project-tag">Responsive Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+         CONCEPT 1 — PARALLAX SCROLL
     ═══════════════════════════════════════════ -->
 
-    <div class="concept-title-box" id="css-animations">
-      <span>CSS Concept — Animations and Staggered Delays</span>
-    </div>
+      <div class="concept-title-box" id="parallax">
+        <span>JavaScript Concept — The Parallax Scroll Effect</span>
+      </div>
 
-    <div class="concept-desc">
-      <p>The bouncing letters on the ASOBI welcome screen look like a complex effect but they are made from two simple CSS tools: <strong>@keyframes</strong> and <strong>animation-delay</strong>. Understanding these two things lets you build almost any animation you can imagine.</p>
-      <p><strong>@keyframes</strong> is where you define the motion itself. You describe what the element looks like at the start, the middle, and the end of the animation. The browser fills in everything in between. Once defined, you attach the animation to any element using the <span class="inline-code">animation</span> property.</p>
-    </div>
+      <div class="concept-desc">
+        <p>When you scroll the NGN homepage, the background hills, leaves, and text all move at different speeds,
+          creating a sense of depth. This is called a <strong>parallax effect</strong> and it is achieved entirely in
+          JavaScript by listening for the scroll event and changing each element's position based on how far down the
+          user has scrolled.</p>
+        <p>The key is <strong>window.scrollY</strong> — a number that tells you exactly how many pixels the user has
+          scrolled from the top. Every time it changes, JavaScript updates each element's style using multiplication to
+          make some things move faster and others slower, which creates the 3D illusion.</p>
+      </div>
 
-    <div class="sub-title-box" id="keyframes">
-      <span>How @keyframes works</span>
-    </div>
+      <div class="sub-title-box" id="parallax-code">
+        <span>How the scroll math works</span>
+      </div>
 
-    <div class="sub-desc">
-      <p>This is the exact animation used in ASOBI. The letter starts at its normal position, moves 20px upward at the halfway point, then returns back down.</p>
-      <div class="code-block"><code><span class="t">@keyframes</span> <span class="fn">bounce</span> {
-  <span class="n">0%</span>, <span class="n">100%</span> { <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">0</span>); }
-  <span class="c">/* start and end in original position */</span>
-  <span class="n">50%</span>        { <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">-20px</span>); }
-  <span class="c">/* at halfway, jump 20px upward */</span>
-}
+      <div class="sub-desc">
+        <div class="code-block"><code><span class="fn">const</span> text  = document.<span class="fn">getElementById</span>(<span class="v">"text"</span>);
+<span class="fn">const</span> leaf  = document.<span class="fn">getElementById</span>(<span class="v">"leaf"</span>);
+<span class="fn">const</span> hill1 = document.<span class="fn">getElementById</span>(<span class="v">"hill1"</span>);
 
-<span class="fn">.welcome span</span> {
-  <span class="a">animation</span>: <span class="fn">bounce</span> <span class="n">1s</span> infinite;
-  <span class="c">/* name | duration | repeat forever */</span>
-}
+window.<span class="fn">addEventListener</span>(<span class="v">"scroll"</span>, () => {
+  <span class="fn">let</span> value = window.scrollY;
+  <span class="cm">/* scrollY = how many pixels the user has scrolled */</span>
 
-<span class="c">/* stagger each letter with a slightly bigger delay */</span>
-<span class="fn">.welcome span:nth-child(1)</span> { <span class="a">animation-delay</span>: <span class="n">0s</span>;   }
-<span class="fn">.welcome span:nth-child(2)</span> { <span class="a">animation-delay</span>: <span class="n">0.1s</span>; }
-<span class="fn">.welcome span:nth-child(3)</span> { <span class="a">animation-delay</span>: <span class="n">0.2s</span>; }
-<span class="fn">.welcome span:nth-child(4)</span> { <span class="a">animation-delay</span>: <span class="n">0.3s</span>; }
-<span class="fn">.welcome span:nth-child(5)</span> { <span class="a">animation-delay</span>: <span class="n">0.4s</span>; }</code></div>
-      <p>Without the delays all five letters would bounce at exactly the same moment and look like one solid block. By giving each letter a slightly larger delay the animation starts at a different time for each one, creating the wave effect. <strong>:nth-child(n)</strong> is a CSS selector that targets an element by its position number inside its parent.</p>
-    </div>
+  text.style.marginTop  = value * <span class="n">2.5</span> + <span class="v">"px"</span>;
+  <span class="cm">/* moves down fast — feels close */</span>
 
-    <!-- ══════════════════════════════════════════
-         CONCEPT 2 — Custom Fonts & clamp
+  leaf.style.top  = value * <span class="n">-1.5</span> + <span class="v">"px"</span>;
+  <span class="cm">/* moves UP as you scroll — creates floating feel */</span>
+
+  hill1.style.top = value * <span class="n">1</span> + <span class="v">"px"</span>;
+  <span class="cm">/* moves down slowly — feels far away */</span>
+});</code></div>
+        <p>The multiplier number controls the speed. A high number like <span class="ic">2.5</span> makes the element
+          race across the screen. A low number like <span class="ic">1</span> makes it drift slowly. A negative number
+          like <span class="ic">-1.5</span> makes it move in the opposite direction — upward while the user scrolls
+          down. By assigning a different multiplier to each layer, every element moves at a unique speed and the
+          illusion of depth is created.</p>
+
+        <!-- QUIZ 1 -->
+        <div class="quiz-block" data-answered="false">
+          <div class="quiz-question">If scrollY is 100, what will <code
+              style="font-size:0.8rem;">text.style.marginTop</code> be set to?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="false">100px</button>
+            <button class="quiz-option" data-correct="false">2.5px</button>
+            <button class="quiz-option" data-correct="true">250px</button>
+            <button class="quiz-option" data-correct="false">150px</button>
+          </div>
+          <div class="quiz-feedback"
+            data-correct="100 × 2.5 = 250. The scrollY value is multiplied by 2.5, so at 100px of scroll, marginTop becomes 250px."
+            data-wrong="Remember: value * 2.5 means 100 * 2.5 = 250. The scrollY is always multiplied by the number next to it.">
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+         CONCEPT 2 — STICKY HEADER
     ═══════════════════════════════════════════ -->
 
-    <div class="concept-title-box" id="css-fonts">
-      <span>CSS Concept — Custom Fonts and Fluid Font Sizing</span>
-    </div>
+      <div class="concept-title-box" id="sticky-header">
+        <span>JavaScript Concept — Sticky Header That Changes on Scroll</span>
+      </div>
 
-    <div class="concept-desc">
-      <p>ASOBI uses a pixel font called "Minecraft" that is not available on Google Fonts. The font file lives inside the project folder and is loaded manually using <strong>@font-face</strong>. This is a standard CSS rule that tells the browser about a font file you are hosting yourself rather than pulling from an external source.</p>
-      <p>On top of that, the welcome text scales smoothly across screen sizes without using media queries. This is done using <strong>clamp()</strong> — a CSS function that lets you define a minimum size, a preferred size, and a maximum size all in one value.</p>
-    </div>
+      <div class="concept-desc">
+        <p>The NGN navbar starts slightly transparent and large. Once you scroll past 50 pixels, it shrinks, turns solid
+          black, and sticks tightly to the top. This behaviour is controlled by JavaScript adding and removing a CSS
+          class called <strong>sticky</strong> — the CSS already knows what the navbar should look like when that class
+          is present, JavaScript just decides when to apply it.</p>
+        <p>This is one of the most important patterns in front-end development: <strong>JavaScript controls when, CSS
+            controls what it looks like.</strong> Keep these responsibilities separate and your code stays clean and
+          easy to maintain.</p>
+      </div>
 
-    <div class="sub-title-box" id="font-face">
-      <span>@font-face and clamp()</span>
-    </div>
+      <div class="sub-title-box" id="sticky-code">
+        <span>The scroll threshold and classList</span>
+      </div>
 
-    <div class="sub-desc">
-      <div class="code-block"><code><span class="c">/* load the font file from your own project folder */</span>
-<span class="t">@font-face</span> {
-  <span class="a">font-family</span>: <span class="v">"Minecraft"</span>;
-  <span class="c">/* the name you'll use in CSS from now on */</span>
-  <span class="a">src</span>: <span class="fn">url</span>(<span class="v">"./assets/fonts/Minecraft.ttf"</span>) <span class="fn">format</span>(<span class="v">"truetype"</span>);
-}
+      <div class="sub-desc">
+        <div class="code-block"><code><span class="fn">const</span> header = document.<span class="fn">querySelector</span>(<span class="v">"header"</span>);
 
-<span class="fn">.welcome</span> {
-  <span class="a">font-size</span>: <span class="fn">clamp</span>(<span class="n">2.5rem</span>, <span class="n">8vw</span>, <span class="n">20rem</span>);
-  <span class="c">/*          min      preferred  max        */</span>
-}</code></div>
-      <p>The <span class="inline-code">font-family</span> value is a name you make up — you use it later anywhere you write <span class="inline-code">font-family: "Minecraft"</span>. The <span class="inline-code">src</span> is the path to the font file stored in your project. For clamp, <strong>2.5rem</strong> is the smallest the text will ever be, <strong>8vw</strong> is the fluid preferred size (8% of the browser window width), and <strong>20rem</strong> is the maximum it can grow to. Without clamp you would need several media query breakpoints just to handle font scaling.</p>
-    </div>
-
-    <!-- ══════════════════════════════════════════
-         CONCEPT 3 — Backgrounds & Sticky Nav
-    ═══════════════════════════════════════════ -->
-
-    <div class="concept-title-box" id="css-layout">
-      <span>CSS Concept — Glowing Background and Sticky Navbar</span>
-    </div>
-
-    <div class="concept-desc">
-      <p>The dark background that glows purple in the centre is not an image — it is a single line of CSS using <strong>radial-gradient</strong>. The navbar that stays fixed at the top as you scroll uses <strong>position: sticky</strong> combined with <strong>z-index</strong> to make sure nothing overlaps it. Both of these are patterns you will reuse in almost every project.</p>
-    </div>
-
-    <div class="sub-title-box" id="gradient-sticky">
-      <span>radial-gradient and position: sticky</span>
-    </div>
-
-    <div class="sub-desc">
-      <div class="code-block"><code><span class="c">/* deep purple glow in the centre, fades to black at the edges */</span>
-<span class="fn">body</span> {
-  <span class="a">background</span>: <span class="fn">radial-gradient</span>(circle, <span class="v">#1a002b</span>, <span class="v">#000</span>);
-}
-
-<span class="fn">.navbar</span> {
-  <span class="a">position</span>: sticky;   <span class="c">/* sticks when you scroll past it */</span>
-  <span class="a">top</span>: <span class="n">0</span>;              <span class="c">/* sticks to the very top */</span>
-  <span class="a">z-index</span>: <span class="n">9</span>;          <span class="c">/* sits above all other content */</span>
-  <span class="a">background</span>: <span class="fn">rgba</span>(<span class="n">10</span>, <span class="n">0</span>, <span class="n">20</span>, <span class="n">0.8</span>); <span class="c">/* semi-transparent */</span>
-}</code></div>
-      <p>A radial gradient radiates outward from a centre point. <span class="inline-code">circle</span> sets its shape, <span class="inline-code">#1a002b</span> is the dark purple inner colour, and <span class="inline-code">#000</span> is the pure black outer edge. For the navbar, <strong>z-index</strong> controls stacking order — a higher number means closer to the front, so page content scrolls underneath it rather than on top. <span class="inline-code">rgba(10, 0, 20, 0.8)</span> is a colour with transparency — the 0.8 makes it 80% opaque so content behind it slightly shows through.</p>
-    </div>
-
-    <!-- ══════════════════════════════════════════
-         CONCEPT 4 — Responsive Hamburger (CSS)
-    ═══════════════════════════════════════════ -->
-
-    <div class="concept-title-box" id="css-responsive">
-      <span>CSS Concept — Responsive Menu with @media and transform</span>
-    </div>
-
-    <div class="concept-desc">
-      <p>On desktop the nav links sit in a row. On mobile they collapse behind a hamburger button. The switch is entirely CSS — a <strong>@media query</strong> that only applies below 768px wide. Inside it, the nav is hidden using three properties together, and the hamburger icon transforms into an X using <strong>transform: rotate()</strong>.</p>
-    </div>
-
-    <div class="sub-title-box" id="media-transform">
-      <span>@media query and hamburger → X transform</span>
-    </div>
-
-    <div class="sub-desc">
-      <div class="code-block"><code><span class="t">@media</span> (<span class="a">max-width</span>: <span class="n">768px</span>) {
-
-  <span class="fn">.nav-links</span> {
-    <span class="a">opacity</span>: <span class="n">0</span>;           <span class="c">/* invisible */</span>
-    <span class="a">visibility</span>: hidden;   <span class="c">/* removed from interaction */</span>
-    <span class="a">pointer-events</span>: none; <span class="c">/* unclickable */</span>
-    <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">-20px</span>); <span class="c">/* shifted up */</span>
-    <span class="a">transition</span>: all <span class="n">0.3s</span> ease;
+window.<span class="fn">addEventListener</span>(<span class="v">"scroll"</span>, () => {
+  <span class="t">if</span> (window.scrollY > <span class="n">50</span>) {
+    header.classList.<span class="fn">add</span>(<span class="v">"sticky"</span>);
+    <span class="cm">/* user scrolled past 50px — apply the sticky style */</span>
+  } <span class="t">else</span> {
+    header.classList.<span class="fn">remove</span>(<span class="v">"sticky"</span>);
+    <span class="cm">/* back near the top — restore original style */</span>
   }
-
-  <span class="fn">.nav-links.active</span> {
-    <span class="a">opacity</span>: <span class="n">1</span>;
-    <span class="a">visibility</span>: visible;
-    <span class="a">pointer-events</span>: all;
-    <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">0</span>); <span class="c">/* slide back into place */</span>
-  }
-
-  <span class="c">/* top line rotates to form one arm of the X */</span>
-  <span class="fn">.hamburger.active span:nth-child(1)</span> {
-    <span class="a">transform</span>: <span class="fn">rotate</span>(<span class="n">45deg</span>) <span class="fn">translate</span>(<span class="n">9px</span>, <span class="n">9px</span>);
-  }
-  <span class="fn">.hamburger.active span:nth-child(2)</span> { <span class="a">opacity</span>: <span class="n">0</span>; }
-  <span class="fn">.hamburger.active span:nth-child(3)</span> {
-    <span class="a">transform</span>: <span class="fn">rotate</span>(<span class="n">-45deg</span>) <span class="fn">translate</span>(<span class="n">8px</span>, <span class="n">-8px</span>);
-  }
-}</code></div>
-      <p>Three properties are needed to fully hide the nav — <span class="inline-code">opacity: 0</span> alone makes it invisible but still clickable, causing accidental taps. <span class="inline-code">visibility: hidden</span> removes it from interaction. <span class="inline-code">pointer-events: none</span> is a safety net. All three together allow the <span class="inline-code">transition</span> to animate the reveal smoothly when <span class="inline-code">.active</span> is added. The translate inside the rotate moves each line so the two arms cross exactly at the centre.</p>
-    </div>
-
-    <!-- ══════════════════════════════════════════
-         CONCEPT 5 — JavaScript Events
-    ═══════════════════════════════════════════ -->
-
-    <div class="concept-title-box" id="js-events">
-      <span>JavaScript Concept — Event Listeners and classList</span>
-    </div>
-
-    <div class="concept-desc">
-      <p>The hamburger menu is controlled entirely by JavaScript adding and removing a CSS class called <strong>active</strong>. The CSS already knows what to do when that class is present — JavaScript just decides when to add or remove it. This separation of concerns is a core pattern in front-end development: CSS handles appearance, JavaScript handles behaviour.</p>
-      <p>Three separate event listeners work together: one on the hamburger button to toggle the menu open and closed, one on each nav link to close the menu when a link is clicked, and one on the entire document to close the menu when the user clicks anywhere outside it.</p>
-    </div>
-
-    <div class="sub-title-box" id="toggle-contains">
-      <span>classList.toggle and stopPropagation</span>
-    </div>
-
-    <div class="sub-desc">
-      <div class="code-block"><code><span class="fn">const</span> hamburger = document.<span class="fn">getElementById</span>(<span class="v">"hamburger"</span>);
-<span class="fn">const</span> navLinks  = document.<span class="fn">getElementById</span>(<span class="v">"navLinks"</span>);
-
-hamburger.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>(e) {
-  e.<span class="fn">stopPropagation</span>();
-  <span class="c">/* stops the click from also firing the document listener below */</span>
-  hamburger.classList.<span class="fn">toggle</span>(<span class="v">"active"</span>);
-  navLinks.classList.<span class="fn">toggle</span>(<span class="v">"active"</span>);
-  <span class="c">/* toggle adds the class if absent, removes it if present */</span>
 });
 
-<span class="c">/* close when clicking outside */</span>
-document.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>(e) {
-  <span class="t">if</span> (!hamburger.<span class="fn">contains</span>(e.target) && !navLinks.<span class="fn">contains</span>(e.target)) {
-    hamburger.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
-    navLinks.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+<span class="cm">/* in CSS, .sticky overrides the default header padding and background */</span>
+<span class="cm">/* header.sticky { padding: 1rem 2.2rem; background: #000; } */</span></code></div>
+        <p>The number <span class="ic">50</span> is the threshold in pixels. You can change it to anything. The CSS
+          <span class="ic">.sticky</span> class has a smaller padding and a solid background — so the moment JavaScript
+          adds it, the header snaps into its compact form. The <span class="ic">transition: all 0.3s ease</span> on the
+          header element in CSS makes that snap animate smoothly instead of jumping instantly.
+        </p>
+
+        <!-- QUIZ 2 -->
+        <div class="quiz-block" data-answered="false">
+          <div class="quiz-question">What does <code style="font-size:0.8rem;">classList.add("sticky")</code> actually
+            do to the element?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="false">It creates a new CSS file called sticky</button>
+            <button class="quiz-option" data-correct="true">It adds "sticky" as a class to the element so CSS rules for
+              .sticky apply</button>
+            <button class="quiz-option" data-correct="false">It makes the element fixed permanently</button>
+            <button class="quiz-option" data-correct="false">It changes the element's position property
+              directly</button>
+          </div>
+          <div class="quiz-feedback"
+            data-correct="Exactly. classList.add() just adds a class name to the element — nothing more. The CSS does all the visual work once that class exists."
+            data-wrong="classList.add() only adds a class name string to the element. All the visual changes (padding, background, etc.) are defined in CSS under .sticky — JavaScript just triggers it.">
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+         CONCEPT 3 — IMAGE SLIDESHOW
+    ═══════════════════════════════════════════ -->
+
+      <div class="concept-title-box" id="slideshow">
+        <span>JavaScript Concept — Building an Image Slideshow</span>
+      </div>
+
+      <div class="concept-desc">
+        <p>The "Quick Stories" section on the NGN homepage is a manual image slideshow — you click the arrows to move
+          between slides, or click the dots to jump to a specific one. The logic is built from scratch using a single
+          variable that tracks which slide is currently visible, and a function that shows the correct one and hides all
+          the others.</p>
+        <p>This project is a perfect example of <strong>state management</strong> at its simplest — keeping track of
+          where you are, and updating what the user sees based on that. This exact pattern — a variable that holds the
+          current position, a function that reads it and updates the DOM — appears in almost every interactive project
+          you will ever build.</p>
+      </div>
+
+      <div class="sub-title-box" id="slideshow-code">
+        <span>The showSlides function explained</span>
+      </div>
+
+      <div class="sub-desc">
+        <div class="code-block"><code><span class="fn">let</span> slideIndex = <span class="n">1</span>;
+<span class="fn">showSlides</span>(slideIndex); <span class="cm">/* show the first slide on page load */</span>
+
+<span class="t">function</span> <span class="fn">showSlides</span>(n) {
+  <span class="fn">let</span> slides = document.<span class="fn">getElementsByClassName</span>(<span class="v">"mySlides"</span>);
+  <span class="fn">let</span> dots   = document.<span class="fn">getElementsByClassName</span>(<span class="v">"dot"</span>);
+
+  <span class="t">if</span> (n > slides.length) { slideIndex = <span class="n">1</span>; }
+  <span class="cm">/* if we go past the last slide, wrap back to slide 1 */</span>
+
+  <span class="t">if</span> (n < <span class="n">1</span>) { slideIndex = slides.length; }
+  <span class="cm">/* if we go before slide 1, wrap to the last slide */</span>
+
+  <span class="t">for</span> (<span class="fn">let</span> i = <span class="n">0</span>; i < slides.length; i++) {
+    slides[i].style.display = <span class="v">"none"</span>; <span class="cm">/* hide ALL slides */</span>
+    dots[i].className = dots[i].className.<span class="fn">replace</span>(<span class="v">" active"</span>, <span class="v">""</span>);
+    <span class="cm">/* remove active class from all dots */</span>
+  }
+
+  slides[slideIndex - <span class="n">1</span>].style.display = <span class="v">"block"</span>;
+  <span class="cm">/* show only the current one (index -1 because arrays start at 0) */</span>
+
+  dots[slideIndex - <span class="n">1</span>].className += <span class="v">" active"</span>;
+  <span class="cm">/* highlight the matching dot */</span>
+}</code></div>
+        <p>The trick is in the order of operations: first hide everything, then show only the one you want. This
+          guarantees only one slide is ever visible at a time, regardless of which one was showing before. The <span
+            class="ic">slideIndex - 1</span> conversion exists because the slideshow counts from 1 (natural for humans)
+          but arrays count from 0 (natural for computers).</p>
+
+        <!-- QUIZ 3 -->
+        <div class="quiz-block" data-answered="false">
+          <div class="quiz-question">The slideshow has 3 slides. slideIndex is currently 3. The user clicks next
+            (plusSlides(1)). What will slideIndex become?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="false">4</button>
+            <button class="quiz-option" data-correct="true">1</button>
+            <button class="quiz-option" data-correct="false">0</button>
+            <button class="quiz-option" data-correct="false">3</button>
+          </div>
+          <div class="quiz-feedback"
+            data-correct="Correct. 3 + 1 = 4, but since 4 > slides.length (3), the function resets slideIndex back to 1 — wrapping around to the beginning."
+            data-wrong="After adding 1, slideIndex becomes 4. But the check 'if (n > slides.length)' catches this and resets it to 1. That's the wrap-around logic.">
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+         CONCEPT 4 — CARD SLIDER
+    ═══════════════════════════════════════════ -->
+
+      <div class="concept-title-box" id="card-slider">
+        <span>CSS + JavaScript Concept — The Scrollable Card Slider</span>
+      </div>
+
+      <div class="concept-desc">
+        <p>The "Breaking News" section uses a horizontal card slider — you click the arrow buttons and the row of cards
+          scrolls left or right. Unlike the slideshow above, this one does not use a JavaScript counter or a show/hide
+          function. Instead it takes advantage of a CSS property called <strong>overflow-x: auto</strong> and simply
+          adjusts the <strong>scrollLeft</strong> value of the container directly.</p>
+        <p>This is a much simpler approach and it is worth understanding the difference. When the number of items is
+          fixed and small, a full index-based slideshow makes sense. When items might overflow naturally in a row,
+          letting CSS handle the overflow and controlling <span class="ic">scrollLeft</span> with JavaScript is cleaner
+          and far less code.</p>
+      </div>
+
+      <div class="sub-title-box" id="card-slider-code">
+        <span>scrollLeft and auto-slide with setInterval</span>
+      </div>
+
+      <div class="sub-desc">
+        <div class="code-block"><code><span class="fn">const</span> slider  = document.<span class="fn">querySelector</span>(<span class="v">".slider"</span>);
+<span class="fn">const</span> nextBtn = document.<span class="fn">querySelector</span>(<span class="v">".sl-next"</span>);
+<span class="fn">const</span> prevBtn = document.<span class="fn">querySelector</span>(<span class="v">".sl-prev"</span>);
+<span class="fn">const</span> cardWidth = <span class="n">320</span>;
+
+nextBtn.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, () => {
+  slider.scrollLeft += cardWidth; <span class="cm">/* scroll right by one card */</span>
+});
+
+prevBtn.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, () => {
+  slider.scrollLeft -= cardWidth; <span class="cm">/* scroll left by one card */</span>
+});
+
+<span class="cm">/* auto-advance every 4 seconds */</span>
+<span class="fn">setInterval</span>(() => {
+  slider.scrollLeft += cardWidth;
+  <span class="t">if</span> (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth) {
+    slider.scrollLeft = <span class="n">0</span>; <span class="cm">/* reset to start when reaching the end */</span>
+  }
+}, <span class="n">4000</span>);
+
+<span class="cm">/* in CSS, scroll-behavior: smooth makes the jump animate */</span>
+<span class="cm">/* .slider { overflow-x: auto; scroll-behavior: smooth; } */</span></code></div>
+        <p><strong>scrollLeft</strong> is a built-in property on any scrollable element — it represents how many pixels
+          the container is scrolled horizontally. Increasing it scrolls right, decreasing it scrolls left.
+          <strong>setInterval</strong> runs a function repeatedly on a timer — the number <span class="ic">4000</span>
+          is milliseconds, so the slider advances automatically every 4 seconds. The reset check at the end stops it
+          from scrolling into empty space past the last card.
+        </p>
+
+        <!-- QUIZ 4 -->
+        <div class="quiz-block" data-answered="false">
+          <div class="quiz-question">What does <code style="font-size:0.8rem;">setInterval(fn, 4000)</code> do?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="false">Runs the function once after 4 seconds</button>
+            <button class="quiz-option" data-correct="false">Pauses the page for 4 seconds</button>
+            <button class="quiz-option" data-correct="true">Runs the function every 4 seconds repeatedly</button>
+            <button class="quiz-option" data-correct="false">Runs the function 4000 times</button>
+          </div>
+          <div class="quiz-feedback"
+            data-correct="Right. setInterval runs the function on a loop, every 4000 milliseconds (4 seconds). Use setTimeout instead if you only want it to run once after a delay."
+            data-wrong="setInterval runs repeatedly — not once. If you want to run something just once after a delay, use setTimeout. setInterval keeps looping until you call clearInterval to stop it.">
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════
+         CONCEPT 5 — RESPONSIVE HAMBURGER
+    ═══════════════════════════════════════════ -->
+
+      <div class="concept-title-box" id="hamburger-menu">
+        <span>CSS + JavaScript Concept — Responsive Hamburger Navigation</span>
+      </div>
+
+      <div class="concept-desc">
+        <p>On screens narrower than 768px, the navigation links disappear and a hamburger button appears. Clicking it
+          slides the nav in from the right side of the screen. This is a two-part system — CSS positions and hides the
+          nav off-screen using <strong>right: -100%</strong>, and JavaScript toggles an <strong>.active</strong> class
+          that slides it back into view. A third listener on the document closes it when you click anywhere outside.</p>
+      </div>
+
+      <div class="sub-title-box" id="hamburger-code">
+        <span>The slide-in nav and outside-click close</span>
+      </div>
+
+      <div class="sub-desc">
+        <div class="code-block"><code><span class="cm">/* CSS — nav is hidden off the right edge of the screen */</span>
+<span class="fn">.navigation</span> {
+  <span class="a">position</span>: fixed;
+  <span class="a">right</span>: <span class="n">-100%</span>;   <span class="cm">/* fully off screen */</span>
+  <span class="a">transition</span>: right <span class="n">0.3s</span> ease;
+}
+<span class="fn">.navigation.active</span> {
+  <span class="a">right</span>: <span class="n">0</span>;        <span class="cm">/* slide into view */</span>
+}
+
+<span class="cm">/* JavaScript — toggle, link-close, and outside-click */</span>
+hamburger.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, () => {
+  navMenu.classList.<span class="fn">toggle</span>(<span class="v">"active"</span>);
+  <span class="t">if</span> (navMenu.classList.<span class="fn">contains</span>(<span class="v">"active"</span>)) {
+    hamburger.classList.<span class="fn">add</span>(<span class="v">"hide"</span>); <span class="cm">/* hide button when menu is open */</span>
+  }
+});
+
+document.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, (e) => {
+  <span class="t">if</span> (!navMenu.<span class="fn">contains</span>(e.target) && !hamburger.<span class="fn">contains</span>(e.target)) {
+    navMenu.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+    hamburger.classList.<span class="fn">remove</span>(<span class="v">"hide"</span>);
   }
 });</code></div>
-      <p><strong>e.stopPropagation()</strong> is needed because clicks bubble upward — a click on the hamburger also counts as a click on the document. Without this line, clicking the hamburger would open the menu and the document listener would immediately close it again. <strong>.contains(e.target)</strong> checks whether the element that was clicked exists inside a given parent — it returns true or false. The <span class="inline-code">!</span> flips the result, so the condition reads "if the click was NOT inside the hamburger AND NOT inside the nav, close the menu."</p>
-    </div>
+        <p>Moving the nav off-screen with <span class="ic">right: -100%</span> instead of <span class="ic">display:
+            none</span> is important — it keeps the CSS transition working. You cannot animate between <span
+            class="ic">display: none</span> and <span class="ic">display: block</span>, but you can animate between two
+          position values. The hamburger is also hidden once the menu opens (<span class="ic">.hide</span> sets <span
+            class="ic">display: none</span>) so there is no confusion about which button to press while the nav is
+          visible.</p>
 
-    <div class="sub-title-box" id="queryselectorall">
-      <span>querySelectorAll and closing on link click</span>
-    </div>
+        <!-- QUIZ 5 -->
+        <div class="quiz-block" data-answered="false">
+          <div class="quiz-question">Why is <code style="font-size:0.8rem;">right: -100%</code> used to hide the nav
+            instead of <code style="font-size:0.8rem;">display: none</code>?</div>
+          <div class="quiz-options">
+            <button class="quiz-option" data-correct="false">Because display: none is not supported on mobile</button>
+            <button class="quiz-option" data-correct="false">Because right: -100% uses less memory</button>
+            <button class="quiz-option" data-correct="true">Because CSS transitions cannot animate display — but they
+              can animate position values</button>
+            <button class="quiz-option" data-correct="false">Because display: none would also hide the hamburger
+              button</button>
+          </div>
+          <div class="quiz-feedback"
+            data-correct="Exactly. CSS transitions only work on properties that have numeric values to interpolate between. display: none has no in-between state — it just snaps. right: -100% to right: 0 is a smooth numeric transition."
+            data-wrong="The key issue is animation. CSS cannot create a smooth transition between display: none and display: block because there is no numeric midpoint. But right: -100% to right: 0 is a number changing — so the browser can animate it smoothly.">
+          </div>
+        </div>
+      </div>
 
-    <div class="sub-desc">
-      <div class="code-block"><code><span class="fn">const</span> links = navLinks.<span class="fn">querySelectorAll</span>(<span class="v">"a"</span>);
-<span class="c">/* selects every &lt;a&gt; tag inside the nav — returns a list */</span>
+      <!-- Bottom nav -->
+      <div
+        style="display:flex; justify-content:space-between; align-items:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--border);">
+        <a href="../HTML/your-first-project.html" class="block-link" style="font-size:0.9rem; color:var(--muted);">
+          <svg viewBox="0 0 24 24" style="transform:rotate(180deg);">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+          Previous: Your First Project
+        </a>
+        <a href="../HTML/changelogs.html" class="block-link" style="font-size:0.9rem;">
+          Next: Changelogs
+          <svg viewBox="0 0 24 24">
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
+        </a>
+      </div>
 
-<span class="t">for</span> (<span class="fn">let</span> i = <span class="n">0</span>; i &lt; links.length; i++) {
-  links[i].<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>() {
-    hamburger.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
-    navLinks.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
-  });
-}</code></div>
-      <p><strong>querySelectorAll</strong> returns a NodeList — similar to an array — of every element matching the CSS selector. The <strong>for loop</strong> walks through each one and attaches the same click listener to all of them. <span class="inline-code">links[i]</span> accesses the item at position i — indexes start at 0, so <span class="inline-code">links[0]</span> is the first link, <span class="inline-code">links[1]</span> is the second, and so on. This is far cleaner than writing a separate addEventListener call for every single link.</p>
-    </div>
+    </main>
 
-    <!-- Bottom nav -->
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--border);">
-      <a href="your-first-project.html" class="block-link" style="font-size:0.9rem; color:var(--muted);">
-        <svg viewBox="0 0 24 24" style="transform:rotate(180deg);"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        Previous: Your First Project
+    <!-- Right Sidebar -->
+    <aside class="right">
+      <div class="toc-title">On This Page</div>
+      <ul class="toc-list">
+        <li><a href="#showcase" class="active">Project Showcase</a></li>
+        <li><a href="#parallax">Parallax Scroll</a></li>
+        <li><a href="#sticky-header">Sticky Header</a></li>
+        <li><a href="#slideshow">Image Slideshow</a></li>
+        <li><a href="#card-slider">Card Slider</a></li>
+        <li><a href="#hamburger-menu">Hamburger Nav</a></li>
+      </ul>
+
+      <div class="toc-divider"></div>
+
+      <div class="toc-extra-title">Concepts Covered</div>
+      <a href="#parallax" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+        </svg>
+        window.scrollY · multipliers
       </a>
-      <a href="#" class="block-link" style="font-size:0.9rem;">
-        Next: Changelogs
-        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      <a href="#sticky-header" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        </svg>
+        classList · scroll threshold
       </a>
-    </div>
+      <a href="#slideshow" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="3" width="20" height="14" rx="2" />
+          <line x1="8" y1="21" x2="16" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+        showSlides · wrap-around
+      </a>
+      <a href="#card-slider" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <line x1="5" y1="12" x2="19" y2="12" />
+          <polyline points="12 5 19 12 12 19" />
+        </svg>
+        scrollLeft · setInterval
+      </a>
+      <a href="#hamburger-menu" class="toc-extra-link">
+        <svg viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+        right: -100% · transitions
+      </a>
+    </aside>
 
-  </main>
+  </div>
 
-  <!-- Right Sidebar -->
-  <aside class="right">
-    <div class="toc-title">On This Page</div>
-    <ul class="toc-list">
-      <li><a href="#showcase" class="active">Project Showcase</a></li>
-      <li><a href="#css-animations">CSS Animations</a></li>
-      <li><a href="#css-fonts">Custom Fonts & clamp</a></li>
-      <li><a href="#css-layout">Backgrounds & Sticky Nav</a></li>
-      <li><a href="#css-responsive">Responsive Menu</a></li>
-      <li><a href="#js-events">JS Events & classList</a></li>
-    </ul>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-    <div class="toc-divider"></div>
-
-    <div class="toc-extra-title">View Source</div>
-    <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" class="toc-extra-link">
-      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-      GitHub — mini-game-portal
-    </a>
-  </aside>
-
-</div><!-- end shell -->
-
-<div class="sidebar-overlay" id="sidebar-overlay"></div>
-
-<script src="concepts-asobi.js"></script>
+  <script src="concepts-ngn.js"></script>
 
 </body>
+
 </html>

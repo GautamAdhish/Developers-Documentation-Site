@@ -45,3 +45,33 @@ function setActiveLink() {
 
 window.addEventListener('scroll', setActiveLink);
 window.addEventListener('load', setActiveLink);
+
+// ── Quiz logic ────────────────────────────────
+document.querySelectorAll('.quiz-option').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const group   = this.closest('.quiz-block');
+    const options = group.querySelectorAll('.quiz-option');
+    const feedback = group.querySelector('.quiz-feedback');
+
+    // already answered
+    if (group.dataset.answered === 'true') return;
+    group.dataset.answered = 'true';
+
+    const isCorrect = this.dataset.correct === 'true';
+
+    options.forEach(opt => {
+      opt.disabled = true;
+      if (opt.dataset.correct === 'true') {
+        opt.classList.add('correct');
+      } else {
+        opt.classList.add('wrong');
+      }
+    });
+
+    feedback.textContent  = isCorrect
+      ? '✓ Correct — ' + feedback.dataset.correct
+      : '✗ Not quite — ' + feedback.dataset.wrong;
+    feedback.className    = 'quiz-feedback ' + (isCorrect ? 'fb-correct' : 'fb-wrong');
+    feedback.style.display = 'block';
+  });
+});
