@@ -862,6 +862,35 @@
       sidebar.classList.remove('open');
       overlay.classList.remove('active');
     });
+
+    // TOC active state on scroll
+    const tocSections = document.querySelectorAll('.section-heading[id]');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+
+    function setActiveTocLink() {
+      let currentId = '';
+      tocSections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 140) {
+          currentId = section.getAttribute('id');
+        }
+      });
+
+      if (!currentId && tocSections.length) {
+        currentId = tocSections[0].getAttribute('id');
+      }
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        const href = link.getAttribute('href');
+        if (href === `#${currentId}`) {
+          link.classList.add('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', setActiveTocLink);
+    window.addEventListener('load', setActiveTocLink);
   </script>
 
 </body>
