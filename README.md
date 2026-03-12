@@ -1,6 +1,5 @@
 # Developers-Documentation-Site
-# Developers-Documentation-Site
-# Developers Documentation Site
+
 
 ## Overview
 The **Developers Documentation Site** is a web-based platform designed to help developers easily access and understand technical resources. It provides structured guides, explanations, and references for different development topics in a clear and organized format.
