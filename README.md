@@ -38,11 +38,6 @@
 Whether you're onboarding new engineers or publishing open-source docs, this site provides a scalable, maintainable, and visually polished foundation.
 
 
-
-> 💡 **Tip:** Clone the repo and run it locally to see the full UI in action. Screenshots auto-update with each deployment.
-
----
-
 ## ✨ Features
 
 | Feature | Description |
@@ -69,15 +64,11 @@ Whether you're onboarding new engineers or publishing open-source docs, this sit
 | **JavaScript (ES6+)** | Interactivity & DOM logic | ES2020+ |
 | **GitHub Pages** | Hosting & deployment | — |
 
-> If using a framework (React, Next.js, etc.), update the table above accordingly.
-
 ---
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-
-Ensure you have the following installed before running this project:
 
 | Tool | Minimum Version | Install Guide |
 |---|---|---|
@@ -88,43 +79,35 @@ Ensure you have the following installed before running this project:
 ### Installation
 
 **1. Clone the repository**
-
 ```bash
 git clone https://github.com/GautamAdhish/Developers-Documentation-Site.git
 ```
 
 **2. Navigate into the project directory**
-
 ```bash
 cd Developers-Documentation-Site
 ```
 
 **3. Install dependencies** *(if applicable)*
-
 ```bash
 npm install
-# or
-yarn install
 ```
 
-**4. Start the development server** *(if applicable)*
-
+**4. Start the development server**
 ```bash
 npm start
-# or
-open index.html   # for static HTML projects
+# or for static HTML projects
+# just open index.html in your browser
 ```
 
 **5. Open in browser**
-
 ```
-http://localhost:3000   # or simply open index.html
+https://developers-documentation-site.vercel.app/
 ```
 
 ---
 
 ## 📁 Project Structure
-
 ```
 Developers-Documentation-Site/
 │
@@ -146,12 +129,10 @@ Developers-Documentation-Site/
 │   ├── api-reference.html
 │   └── faq.html
 │
-└── docs/                   # Markdown or raw documentation files
+└── docs/
     ├── guide.md
     └── reference.md
 ```
-
-> ℹ️ Structure may vary depending on your implementation. Update this section to reflect your actual file tree.
 
 ---
 
@@ -174,39 +155,33 @@ Contributions are welcome and greatly appreciated! Here's how to get started:
 
 1. **Fork** this repository
 2. **Create** your feature branch
-   ```bash
+```bash
    git checkout -b feature/your-feature-name
-   ```
-3. **Commit** your changes with a clear message
-   ```bash
-   git commit -m "feat: add search highlighting"
-   ```
+```
+3. **Commit** your changes
+```bash
+   git commit -m "feat: add your feature description"
+```
 4. **Push** to your fork
-   ```bash
+```bash
    git push origin feature/your-feature-name
-   ```
+```
 5. **Open a Pull Request** describing your changes
 
-### Contribution Guidelines
+### Branch Naming Convention
 
-| Type | Branch Naming | Example |
+| Type | Format | Example |
 |---|---|---|
 | New Feature | `feature/name` | `feature/dark-mode-toggle` |
 | Bug Fix | `fix/name` | `fix/sidebar-scroll` |
 | Documentation | `docs/name` | `docs/update-api-reference` |
 | Refactor | `refactor/name` | `refactor/css-variables` |
 
-> Please make sure your code is clean, tested, and follows the existing code style before submitting a PR.
-
 ---
 
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
-```
-MIT License — free to use, modify, and distribute with attribution.
-```
 
 ---
 
@@ -215,8 +190,10 @@ MIT License — free to use, modify, and distribute with attribution.
 <div align="center">
 
 **Gautam Adhish**
+**Saman Khanal**
+**Anjal Bhattarai**
+**Niraj Kushwaha**
 
-[![GitHub](https://img.shields.io/badge/GitHub-GautamAdhish-181717?style=for-the-badge&logo=github)](https://github.com/GautamAdhish)
 
 *If you found this project helpful, please consider giving it a ⭐ — it really helps!*
 
@@ -225,7 +202,5 @@ MIT License — free to use, modify, and distribute with attribution.
 ---
 
 <div align="center">
-
-Made with ❤️ by [Gautam Adhish](https://github.com/GautamAdhish)
-
+Made with ❤️ by <a href="https://github.com/GautamAdhish">Gautam Adhish</a>
 </div>
