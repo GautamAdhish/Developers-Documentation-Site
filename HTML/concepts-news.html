@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Concepts — ASOBI Game Portal — DevDocs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../CSS/style.css"/>
+  <style>
+
+    /* ── Project showcase ────────────────────────── */
+    .project-showcase {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-bottom: 32px;
+      background: var(--surface);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .project-screenshot {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid var(--border);
+      max-height: 300px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .project-showcase-body {
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .project-showcase-info h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .project-showcase-info p {
+      font-size: 0.855rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+
+    .project-showcase-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 6px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .project-gh-link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .project-gh-link:hover { background: var(--accent-soft); }
+    .project-gh-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+    /* ── Concept title box (large — "Programming Concept 1") ── */
+    .concept-title-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 20px;
+      margin-bottom: 14px;
+      background: var(--surface);
+      display: block;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .concept-title-box span {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* ── Plain text description block ───────────── */
+    .concept-desc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-bottom: 14px;
+      font-size: 0.875rem;
+      line-height: 1.8;
+      color: var(--muted);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .concept-desc p + p { margin-top: 10px; }
+    .concept-desc strong { color: var(--text); }
+
+    /* ── Sub-box (smaller, indented — "Project Idea 1") ── */
+    .sub-title-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 16px;
+      margin: 0 0 10px 20px;
+      background: var(--surface);
+      display: inline-block;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .sub-title-box span {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    /* ── Sub description (indented text block) ───── */
+    .sub-desc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 0 0 28px 20px;
+      font-size: 0.855rem;
+      line-height: 1.8;
+      color: var(--muted);
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .sub-desc p + p { margin-top: 10px; }
+    .sub-desc strong { color: var(--text); }
+
+    /* code inside text */
+    .inline-code {
+      font-size: 0.8rem;
+      background: var(--bg);
+      padding: 1px 6px;
+      border-radius: 4px;
+      color: var(--accent);
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* code block */
+    .code-block {
+      background: #0f0f1a;
+      border: 1px solid #2a2a42;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 12px 0 0;
+      overflow-x: auto;
+    }
+
+    .code-block code {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.78rem;
+      line-height: 1.75;
+      white-space: pre;
+      color: #c8c0e0;
+    }
+
+    .t  { color: #f7924f; }
+    .a  { color: #7dd3a8; }
+    .v  { color: #ffd580; }
+    .c  { color: #4a4a6a; }
+    .fn { color: #a8c8ff; }
+    .n  { color: #f7924f; }
+
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────────── -->
+<header>
+  <div class="logo-area">
+    <div class="logo-icon">
+      <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+    </div>
+    <span class="logo-text">Dev<span>Docs</span></span>
+  </div>
+
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" placeholder="Search docs…" aria-label="Search documentation"/>
+  </div>
+
+  <nav class="nav-icons">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" aria-label="GitHub">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+    </a>
+    <button id="theme-toggle" aria-label="Toggle dark mode">
+      <svg id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </nav>
+</header>
+
+<!-- ── Shell ───────────────────────────────────────────── -->
+<div class="shell">
+
+  <!-- Left Sidebar -->
+  <aside class="left">
+    <div class="nav-section">
+      <div class="nav-label">Menu</div>
+
+      <a href="index.html" class="nav-item">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Getting Started
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Guides
+      </a>
+      <div class="nav-sub">
+        <a href="things-you-need-to-know.html" class="nav-item">Things You Need To Know</a>
+        <a href="what-we-recommend.html" class="nav-item">What We Recommend</a>
+        <a href="your-first-project.html" class="nav-item">Your First Project</a>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        Learning Resources
+      </a>
+
+      <a href="#" class="nav-item active">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Concepts
+      </a>
+      <div class="nav-sub">
+        <a href="concepts-asobi.html" class="nav-item active">ASOBI Game Portal</a>
+      </div>
+
+      <div class="nav-divider"></div>
+
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        Changelogs
+      </a>
+
+      <a href="#" class="nav-item">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Community
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      Docs
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      Concepts
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>ASOBI Game Portal</span>
+    </div>
+
+    <!-- Page title -->
+    <h1 style="font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:800; color:var(--text); margin-bottom:10px; line-height:1.2;">
+      What Can You Build? — ASOBI Game Portal
+    </h1>
+    <p style="font-size:0.9rem; color:var(--muted); margin-bottom:24px; line-height:1.7;">
+      A real project built with only HTML, CSS, and JavaScript — and a breakdown of the parts that beginners usually find confusing.
+    </p>
+
+    <!-- Project Showcase -->
+    <div class="project-showcase" id="showcase">
+      <img src="asobi-preview.png" alt="ASOBI Game Portal" class="project-screenshot"/>
+      <div class="project-showcase-body">
+        <div class="project-showcase-info">
+          <h2>ASOBI — Mini Game Portal</h2>
+          <p>A fully functional browser-based game portal featuring Snake, Rock Paper Scissors, Tic Tac Toe and more. Built entirely with HTML, CSS, and vanilla JavaScript — no frameworks, no libraries. This is exactly the kind of project you can build once you know the fundamentals.</p>
+          <div class="project-showcase-tags">
+            <span class="project-tag">HTML</span>
+            <span class="project-tag">CSS</span>
+            <span class="project-tag">JavaScript</span>
+            <span class="project-tag">CSS Animations</span>
+            <span class="project-tag">Responsive Design</span>
+            <span class="project-tag">DOM Manipulation</span>
+          </div>
+        </div>
+        <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" class="project-gh-link">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         CONCEPT 1 — CSS Animations
+    ═══════════════════════════════════════════ -->
+
+    <div class="concept-title-box" id="css-animations">
+      <span>CSS Concept — Animations and Staggered Delays</span>
+    </div>
+
+    <div class="concept-desc">
+      <p>The bouncing letters on the ASOBI welcome screen look like a complex effect but they are made from two simple CSS tools: <strong>@keyframes</strong> and <strong>animation-delay</strong>. Understanding these two things lets you build almost any animation you can imagine.</p>
+      <p><strong>@keyframes</strong> is where you define the motion itself. You describe what the element looks like at the start, the middle, and the end of the animation. The browser fills in everything in between. Once defined, you attach the animation to any element using the <span class="inline-code">animation</span> property.</p>
+    </div>
+
+    <div class="sub-title-box" id="keyframes">
+      <span>How @keyframes works</span>
+    </div>
+
+    <div class="sub-desc">
+      <p>This is the exact animation used in ASOBI. The letter starts at its normal position, moves 20px upward at the halfway point, then returns back down.</p>
+      <div class="code-block"><code><span class="t">@keyframes</span> <span class="fn">bounce</span> {
+  <span class="n">0%</span>, <span class="n">100%</span> { <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">0</span>); }
+  <span class="c">/* start and end in original position */</span>
+  <span class="n">50%</span>        { <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">-20px</span>); }
+  <span class="c">/* at halfway, jump 20px upward */</span>
+}
+
+<span class="fn">.welcome span</span> {
+  <span class="a">animation</span>: <span class="fn">bounce</span> <span class="n">1s</span> infinite;
+  <span class="c">/* name | duration | repeat forever */</span>
+}
+
+<span class="c">/* stagger each letter with a slightly bigger delay */</span>
+<span class="fn">.welcome span:nth-child(1)</span> { <span class="a">animation-delay</span>: <span class="n">0s</span>;   }
+<span class="fn">.welcome span:nth-child(2)</span> { <span class="a">animation-delay</span>: <span class="n">0.1s</span>; }
+<span class="fn">.welcome span:nth-child(3)</span> { <span class="a">animation-delay</span>: <span class="n">0.2s</span>; }
+<span class="fn">.welcome span:nth-child(4)</span> { <span class="a">animation-delay</span>: <span class="n">0.3s</span>; }
+<span class="fn">.welcome span:nth-child(5)</span> { <span class="a">animation-delay</span>: <span class="n">0.4s</span>; }</code></div>
+      <p>Without the delays all five letters would bounce at exactly the same moment and look like one solid block. By giving each letter a slightly larger delay the animation starts at a different time for each one, creating the wave effect. <strong>:nth-child(n)</strong> is a CSS selector that targets an element by its position number inside its parent.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         CONCEPT 2 — Custom Fonts & clamp
+    ═══════════════════════════════════════════ -->
+
+    <div class="concept-title-box" id="css-fonts">
+      <span>CSS Concept — Custom Fonts and Fluid Font Sizing</span>
+    </div>
+
+    <div class="concept-desc">
+      <p>ASOBI uses a pixel font called "Minecraft" that is not available on Google Fonts. The font file lives inside the project folder and is loaded manually using <strong>@font-face</strong>. This is a standard CSS rule that tells the browser about a font file you are hosting yourself rather than pulling from an external source.</p>
+      <p>On top of that, the welcome text scales smoothly across screen sizes without using media queries. This is done using <strong>clamp()</strong> — a CSS function that lets you define a minimum size, a preferred size, and a maximum size all in one value.</p>
+    </div>
+
+    <div class="sub-title-box" id="font-face">
+      <span>@font-face and clamp()</span>
+    </div>
+
+    <div class="sub-desc">
+      <div class="code-block"><code><span class="c">/* load the font file from your own project folder */</span>
+<span class="t">@font-face</span> {
+  <span class="a">font-family</span>: <span class="v">"Minecraft"</span>;
+  <span class="c">/* the name you'll use in CSS from now on */</span>
+  <span class="a">src</span>: <span class="fn">url</span>(<span class="v">"./assets/fonts/Minecraft.ttf"</span>) <span class="fn">format</span>(<span class="v">"truetype"</span>);
+}
+
+<span class="fn">.welcome</span> {
+  <span class="a">font-size</span>: <span class="fn">clamp</span>(<span class="n">2.5rem</span>, <span class="n">8vw</span>, <span class="n">20rem</span>);
+  <span class="c">/*          min      preferred  max        */</span>
+}</code></div>
+      <p>The <span class="inline-code">font-family</span> value is a name you make up — you use it later anywhere you write <span class="inline-code">font-family: "Minecraft"</span>. The <span class="inline-code">src</span> is the path to the font file stored in your project. For clamp, <strong>2.5rem</strong> is the smallest the text will ever be, <strong>8vw</strong> is the fluid preferred size (8% of the browser window width), and <strong>20rem</strong> is the maximum it can grow to. Without clamp you would need several media query breakpoints just to handle font scaling.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         CONCEPT 3 — Backgrounds & Sticky Nav
+    ═══════════════════════════════════════════ -->
+
+    <div class="concept-title-box" id="css-layout">
+      <span>CSS Concept — Glowing Background and Sticky Navbar</span>
+    </div>
+
+    <div class="concept-desc">
+      <p>The dark background that glows purple in the centre is not an image — it is a single line of CSS using <strong>radial-gradient</strong>. The navbar that stays fixed at the top as you scroll uses <strong>position: sticky</strong> combined with <strong>z-index</strong> to make sure nothing overlaps it. Both of these are patterns you will reuse in almost every project.</p>
+    </div>
+
+    <div class="sub-title-box" id="gradient-sticky">
+      <span>radial-gradient and position: sticky</span>
+    </div>
+
+    <div class="sub-desc">
+      <div class="code-block"><code><span class="c">/* deep purple glow in the centre, fades to black at the edges */</span>
+<span class="fn">body</span> {
+  <span class="a">background</span>: <span class="fn">radial-gradient</span>(circle, <span class="v">#1a002b</span>, <span class="v">#000</span>);
+}
+
+<span class="fn">.navbar</span> {
+  <span class="a">position</span>: sticky;   <span class="c">/* sticks when you scroll past it */</span>
+  <span class="a">top</span>: <span class="n">0</span>;              <span class="c">/* sticks to the very top */</span>
+  <span class="a">z-index</span>: <span class="n">9</span>;          <span class="c">/* sits above all other content */</span>
+  <span class="a">background</span>: <span class="fn">rgba</span>(<span class="n">10</span>, <span class="n">0</span>, <span class="n">20</span>, <span class="n">0.8</span>); <span class="c">/* semi-transparent */</span>
+}</code></div>
+      <p>A radial gradient radiates outward from a centre point. <span class="inline-code">circle</span> sets its shape, <span class="inline-code">#1a002b</span> is the dark purple inner colour, and <span class="inline-code">#000</span> is the pure black outer edge. For the navbar, <strong>z-index</strong> controls stacking order — a higher number means closer to the front, so page content scrolls underneath it rather than on top. <span class="inline-code">rgba(10, 0, 20, 0.8)</span> is a colour with transparency — the 0.8 makes it 80% opaque so content behind it slightly shows through.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         CONCEPT 4 — Responsive Hamburger (CSS)
+    ═══════════════════════════════════════════ -->
+
+    <div class="concept-title-box" id="css-responsive">
+      <span>CSS Concept — Responsive Menu with @media and transform</span>
+    </div>
+
+    <div class="concept-desc">
+      <p>On desktop the nav links sit in a row. On mobile they collapse behind a hamburger button. The switch is entirely CSS — a <strong>@media query</strong> that only applies below 768px wide. Inside it, the nav is hidden using three properties together, and the hamburger icon transforms into an X using <strong>transform: rotate()</strong>.</p>
+    </div>
+
+    <div class="sub-title-box" id="media-transform">
+      <span>@media query and hamburger → X transform</span>
+    </div>
+
+    <div class="sub-desc">
+      <div class="code-block"><code><span class="t">@media</span> (<span class="a">max-width</span>: <span class="n">768px</span>) {
+
+  <span class="fn">.nav-links</span> {
+    <span class="a">opacity</span>: <span class="n">0</span>;           <span class="c">/* invisible */</span>
+    <span class="a">visibility</span>: hidden;   <span class="c">/* removed from interaction */</span>
+    <span class="a">pointer-events</span>: none; <span class="c">/* unclickable */</span>
+    <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">-20px</span>); <span class="c">/* shifted up */</span>
+    <span class="a">transition</span>: all <span class="n">0.3s</span> ease;
+  }
+
+  <span class="fn">.nav-links.active</span> {
+    <span class="a">opacity</span>: <span class="n">1</span>;
+    <span class="a">visibility</span>: visible;
+    <span class="a">pointer-events</span>: all;
+    <span class="a">transform</span>: <span class="fn">translateY</span>(<span class="n">0</span>); <span class="c">/* slide back into place */</span>
+  }
+
+  <span class="c">/* top line rotates to form one arm of the X */</span>
+  <span class="fn">.hamburger.active span:nth-child(1)</span> {
+    <span class="a">transform</span>: <span class="fn">rotate</span>(<span class="n">45deg</span>) <span class="fn">translate</span>(<span class="n">9px</span>, <span class="n">9px</span>);
+  }
+  <span class="fn">.hamburger.active span:nth-child(2)</span> { <span class="a">opacity</span>: <span class="n">0</span>; }
+  <span class="fn">.hamburger.active span:nth-child(3)</span> {
+    <span class="a">transform</span>: <span class="fn">rotate</span>(<span class="n">-45deg</span>) <span class="fn">translate</span>(<span class="n">8px</span>, <span class="n">-8px</span>);
+  }
+}</code></div>
+      <p>Three properties are needed to fully hide the nav — <span class="inline-code">opacity: 0</span> alone makes it invisible but still clickable, causing accidental taps. <span class="inline-code">visibility: hidden</span> removes it from interaction. <span class="inline-code">pointer-events: none</span> is a safety net. All three together allow the <span class="inline-code">transition</span> to animate the reveal smoothly when <span class="inline-code">.active</span> is added. The translate inside the rotate moves each line so the two arms cross exactly at the centre.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         CONCEPT 5 — JavaScript Events
+    ═══════════════════════════════════════════ -->
+
+    <div class="concept-title-box" id="js-events">
+      <span>JavaScript Concept — Event Listeners and classList</span>
+    </div>
+
+    <div class="concept-desc">
+      <p>The hamburger menu is controlled entirely by JavaScript adding and removing a CSS class called <strong>active</strong>. The CSS already knows what to do when that class is present — JavaScript just decides when to add or remove it. This separation of concerns is a core pattern in front-end development: CSS handles appearance, JavaScript handles behaviour.</p>
+      <p>Three separate event listeners work together: one on the hamburger button to toggle the menu open and closed, one on each nav link to close the menu when a link is clicked, and one on the entire document to close the menu when the user clicks anywhere outside it.</p>
+    </div>
+
+    <div class="sub-title-box" id="toggle-contains">
+      <span>classList.toggle and stopPropagation</span>
+    </div>
+
+    <div class="sub-desc">
+      <div class="code-block"><code><span class="fn">const</span> hamburger = document.<span class="fn">getElementById</span>(<span class="v">"hamburger"</span>);
+<span class="fn">const</span> navLinks  = document.<span class="fn">getElementById</span>(<span class="v">"navLinks"</span>);
+
+hamburger.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>(e) {
+  e.<span class="fn">stopPropagation</span>();
+  <span class="c">/* stops the click from also firing the document listener below */</span>
+  hamburger.classList.<span class="fn">toggle</span>(<span class="v">"active"</span>);
+  navLinks.classList.<span class="fn">toggle</span>(<span class="v">"active"</span>);
+  <span class="c">/* toggle adds the class if absent, removes it if present */</span>
+});
+
+<span class="c">/* close when clicking outside */</span>
+document.<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>(e) {
+  <span class="t">if</span> (!hamburger.<span class="fn">contains</span>(e.target) && !navLinks.<span class="fn">contains</span>(e.target)) {
+    hamburger.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+    navLinks.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+  }
+});</code></div>
+      <p><strong>e.stopPropagation()</strong> is needed because clicks bubble upward — a click on the hamburger also counts as a click on the document. Without this line, clicking the hamburger would open the menu and the document listener would immediately close it again. <strong>.contains(e.target)</strong> checks whether the element that was clicked exists inside a given parent — it returns true or false. The <span class="inline-code">!</span> flips the result, so the condition reads "if the click was NOT inside the hamburger AND NOT inside the nav, close the menu."</p>
+    </div>
+
+    <div class="sub-title-box" id="queryselectorall">
+      <span>querySelectorAll and closing on link click</span>
+    </div>
+
+    <div class="sub-desc">
+      <div class="code-block"><code><span class="fn">const</span> links = navLinks.<span class="fn">querySelectorAll</span>(<span class="v">"a"</span>);
+<span class="c">/* selects every &lt;a&gt; tag inside the nav — returns a list */</span>
+
+<span class="t">for</span> (<span class="fn">let</span> i = <span class="n">0</span>; i &lt; links.length; i++) {
+  links[i].<span class="fn">addEventListener</span>(<span class="v">"click"</span>, <span class="t">function</span>() {
+    hamburger.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+    navLinks.classList.<span class="fn">remove</span>(<span class="v">"active"</span>);
+  });
+}</code></div>
+      <p><strong>querySelectorAll</strong> returns a NodeList — similar to an array — of every element matching the CSS selector. The <strong>for loop</strong> walks through each one and attaches the same click listener to all of them. <span class="inline-code">links[i]</span> accesses the item at position i — indexes start at 0, so <span class="inline-code">links[0]</span> is the first link, <span class="inline-code">links[1]</span> is the second, and so on. This is far cleaner than writing a separate addEventListener call for every single link.</p>
+    </div>
+
+    <!-- Bottom nav -->
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:32px; padding-top:24px; border-top:1px solid var(--border);">
+      <a href="your-first-project.html" class="block-link" style="font-size:0.9rem; color:var(--muted);">
+        <svg viewBox="0 0 24 24" style="transform:rotate(180deg);"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        Previous: Your First Project
+      </a>
+      <a href="#" class="block-link" style="font-size:0.9rem;">
+        Next: Changelogs
+        <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Right Sidebar -->
+  <aside class="right">
+    <div class="toc-title">On This Page</div>
+    <ul class="toc-list">
+      <li><a href="#showcase" class="active">Project Showcase</a></li>
+      <li><a href="#css-animations">CSS Animations</a></li>
+      <li><a href="#css-fonts">Custom Fonts & clamp</a></li>
+      <li><a href="#css-layout">Backgrounds & Sticky Nav</a></li>
+      <li><a href="#css-responsive">Responsive Menu</a></li>
+      <li><a href="#js-events">JS Events & classList</a></li>
+    </ul>
+
+    <div class="toc-divider"></div>
+
+    <div class="toc-extra-title">View Source</div>
+    <a href="https://github.com/RujalRazz/mini-game-portal" target="_blank" class="toc-extra-link">
+      <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub — mini-game-portal
+    </a>
+  </aside>
+
+</div><!-- end shell -->
+
+<div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+<script src="concepts-asobi.js"></script>
+
+</body>
+</html>
