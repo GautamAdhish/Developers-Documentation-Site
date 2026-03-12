@@ -46,8 +46,15 @@
       gap: 30px;
     }
 
-    .member-avatar {
+    .member-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
       flex-shrink: 0;
+    }
+
+    .member-avatar {
       width: 80px;
       height: 80px;
       background: var(--bg);
@@ -57,6 +64,7 @@
       align-items: center;
       justify-content: center;
       color: var(--muted);
+      overflow: hidden;
     }
 
     .member-avatar svg {
@@ -67,24 +75,28 @@
       stroke-width: 1.5;
     }
 
+    .member-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
     .member-info {
       flex: 1;
       font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.6;
+      text-align: justify;
     }
 
     .member-name {
-      flex-shrink: 0;
-      width: 120px;
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--text);
-    }
-
-    .member-name.right {
-      text-align: right;
+      text-align: center;
+      line-height: 1.2;
     }
 
     @media (max-width: 768px) {
@@ -93,11 +105,10 @@
         align-items: flex-start;
         gap: 15px;
       }
-      .member-name {
-        width: auto;
-        text-align: left;
+      .member-meta {
+        align-items: flex-start;
       }
-      .member-name.right {
+      .member-name {
         text-align: left;
       }
     }
@@ -242,69 +253,77 @@
 
       <div class="community-hero" id="our-members">
         <h1>Our Members</h1>
-        <p>The core community behind Developer Documentation Site.</p>
+        <p>The people designing, writing, and testing this documentation together.</p>
       </div>
 
       <div class="members-list">
         
-        <!-- Member Card 1 -->
+        <!-- Member Card 1: Anjal Bhattarai -->
         <div class="member-card">
-          <div class="member-name">Name</div>
+          <div class="member-name">Anjal<br />Bhattarai</div>
           <div class="member-info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              AI Lead at SamaWellness, building scalable, user-centric AI systems with Python, scikit-learn, TensorFlow, FastAPI, and modern tooling around LangChain and LangGraph. Anjal focuses on recommender systems, classification, and conversational AI with a strong emphasis on ethics, transparency, and privacy.
+            </p>
+            <p>
+              His goal is to design AI solutions that improve accessibility and decision-making for communities, while staying grounded in fairness and long-term sustainability.
+              <br />
+              <a href="https://anjalbhattarai.com.np" target="_blank" style="font-size:0.8rem;">anjalbhattarai.com.np</a>
+              &nbsp;·&nbsp;
+              <a href="https://www.linkedin.com/in/anjal-bhattarai-7b506b39a" target="_blank" style="font-size:0.8rem;">LinkedIn</a>
+            </p>
           </div>
           <div class="member-avatar">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
+            <img src="../images/anjal.jpg" alt="Portrait of Anjal Bhattarai" />
           </div>
         </div>
 
-        <!-- Member Card 2 -->
+        <!-- Member Card 2: Saman Khanal -->
         <div class="member-card">
           <div class="member-avatar">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
+            <img src="../images/saman.jpg" alt="Portrait of Saman Khanal" />
           </div>
           <div class="member-info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              Saman is a curious, hands-on learner focused on cybersecurity, ethical hacking, and system security. He regularly works through CTF challenges and platforms like TryHackMe, building practical skills in enumeration, exploitation concepts, and system analysis on Linux and Kali-based environments.
+            </p>
+            <p>
+              He is steadily growing his command-line, networking, and security fundamentals with the long-term goal of becoming a cybersecurity professional who helps design secure and resilient systems.
+            </p>
           </div>
-          <div class="member-name right">Name</div>
+          <div class="member-name right">Saman<br />Khanal</div>
         </div>
 
-        <!-- Member Card 3 -->
+        <!-- Member Card 3: Adhish Gautam -->
         <div class="member-card">
-          <div class="member-name">Name</div>
+          <div class="member-name">Adhish<br />Gautam</div>
           <div class="member-info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              Adhish is a student with a strong interest in programming, cybersecurity, and modern technology. He enjoys understanding how systems work under the hood, building small projects, and experimenting with tools that deepen his knowledge of software and security concepts.
+            </p>
+            <p>
+              He is motivated to keep improving his technical skills and apply them to practical problems, especially around developer experience and learning resources.
+            </p>
           </div>
           <div class="member-avatar">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
+            <img src="../images/adhish.jpg" alt="Portrait of Adhish Gautam" />
           </div>
         </div>
 
-        <!-- Member Card 4 -->
+        <!-- Member Card 4: Niraj Kushwaha -->
         <div class="member-card">
           <div class="member-avatar">
-            <svg viewBox="0 0 24 24">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
+            <img src="../images/niraj.jpg" alt="Portrait of Niraj Kushwaha" />
           </div>
           <div class="member-info">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>
+              Niraj is an enthusiastic learner exploring programming, web technologies, and security. He spends his time experimenting with code, improving his fundamentals, and collaborating on beginner-friendly projects that make technical concepts easier to understand.
+            </p>
+            <p>
+              He aims to grow into a well-rounded developer who can contribute to both building software and helping others learn through clear, approachable documentation.
+            </p>
           </div>
-          <div class="member-name right">Name</div>
+          <div class="member-name right">Niraj<br />Kushwaha</div>
         </div>
 
       </div>
